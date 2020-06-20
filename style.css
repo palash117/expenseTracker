@@ -172,6 +172,16 @@ span{
     border: 1px solid var(--t-color);
     border-radius: 5px;
     margin-bottom: 10px;
+    background-color: var(--s-color);
+    color: white;
+}
+.addTransaction{
+    
+    background-color: var(--s-color);
+    color: white;
+    border: 1px solid var(--t-color);
+    border-radius: 5px;
+    margin-bottom: 10px;
 }
 .delete{
     position: absolute;
