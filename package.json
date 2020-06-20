@@ -1,0 +1,28 @@
+{
+  "name": "expenseTracker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/script/script.js",
+  "scripts": {
+    "test": "jest",
+    "coverage": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/palash117/expenseTracker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/palash117/expenseTracker/issues"
+  },
+  "homepage": "https://github.com/palash117/expenseTracker#readme",
+  "devDependencies": {
+    "jest": "^26.0.1",
+    "parcel-bundler": "^1.12.4"
+  },
+  "dependencies": {
+    "uuid": "^8.1.0"
+  }
+}

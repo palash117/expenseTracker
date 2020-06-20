@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1592648300856" clover="3.2.0">
+  <project timestamp="1592648300857" name="All files">
+    <metrics statements="42" coveredstatements="40" conditionals="10" coveredconditionals="10" methods="20" coveredmethods="18" elements="72" coveredelements="68" complexity="0" loc="42" ncloc="42" packages="1" files="3" classes="3"/>
+    <file name="expenseManager.js" path="C:\Users\palashWindows\dev\20JavaScript\expenseTracker\src\script\modules\expenseManager.js">
+      <metrics statements="32" coveredstatements="30" conditionals="8" coveredconditionals="8" methods="18" coveredmethods="16"/>
+      <line num="1" count="1" type="stmt"/>
+      <line num="2" count="1" type="stmt"/>
+      <line num="5" count="10" type="stmt"/>
+      <line num="8" count="15" type="cond" truecount="2" falsecount="0"/>
+      <line num="9" count="1" type="stmt"/>
+      <line num="11" count="14" type="cond" truecount="2" falsecount="0"/>
+      <line num="12" count="1" type="stmt"/>
+      <line num="14" count="13" type="cond" truecount="2" falsecount="0"/>
+      <line num="15" count="13" type="stmt"/>
+      <line num="16" count="13" type="stmt"/>
+      <line num="17" count="13" type="stmt"/>
+      <line num="20" count="1" type="stmt"/>
+      <line num="23" count="4" type="stmt"/>
+      <line num="24" count="2" type="stmt"/>
+      <line num="27" count="1" type="stmt"/>
+      <line num="53" count="2" type="stmt"/>
+      <line num="54" count="4" type="cond" truecount="2" falsecount="0"/>
+      <line num="55" count="2" type="stmt"/>
+      <line num="57" count="2" type="stmt"/>
+      <line num="59" count="2" type="stmt"/>
+      <line num="60" count="2" type="stmt"/>
+      <line num="63" count="2" type="stmt"/>
+      <line num="64" count="4" type="stmt"/>
+      <line num="65" count="2" type="stmt"/>
+      <line num="66" count="0" type="stmt"/>
+      <line num="67" count="2" type="stmt"/>
+      <line num="70" count="1" type="stmt"/>
+      <line num="71" count="2" type="stmt"/>
+      <line num="72" count="1" type="stmt"/>
+      <line num="73" count="0" type="stmt"/>
+      <line num="74" count="1" type="stmt"/>
+      <line num="78" count="1" type="stmt"/>
+    </file>
+    <file name="expenseType.js" path="C:\Users\palashWindows\dev\20JavaScript\expenseTracker\src\script\modules\expenseType.js">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <line num="1" count="2" type="stmt"/>
+      <line num="5" count="2" type="stmt"/>
+    </file>
+    <file name="transaction.js" path="C:\Users\palashWindows\dev\20JavaScript\expenseTracker\src\script\modules\transaction.js">
+      <metrics statements="8" coveredstatements="8" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+      <line num="1" count="2" type="stmt"/>
+      <line num="4" count="25" type="stmt"/>
+      <line num="5" count="25" type="stmt"/>
+      <line num="6" count="25" type="stmt"/>
+      <line num="7" count="25" type="stmt"/>
+      <line num="10" count="5" type="cond" truecount="2" falsecount="0"/>
+      <line num="11" count="5" type="stmt"/>
+      <line num="14" count="2" type="stmt"/>
+    </file>
+  </project>
+</coverage>

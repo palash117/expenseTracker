@@ -1,0 +1,196 @@
+@import url("https://fonts.googleapis.com/css?family=Oswald");
+@import url("https://fonts.googleapis.com/css?family=Lato&display=swap");
+
+:root{
+    --p-color:#ffdcb4;
+    --s-color:#c060a1;
+    --t-color:#6a097d;
+    --q-color: #00005c;
+}
+body{
+    box-sizing: border-box;
+    background-color: var(--p-color);
+    font-family: Lato, sans-serif;
+    color: var(--q-color);
+
+}
+.mainContainer{
+    display: flex;
+    flex-direction: column;
+    padding-top: 100px;
+    align-items: center;
+    justify-content: center;
+}
+.banner{
+    background-color: var(--s-color);
+    border: 2px solid var(--t-color) ;
+    border-bottom: none;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.bannerMessage{
+    text-align: center;
+    font-family: Oswald;
+    font-size: 150%;
+    margin:0 20px;
+}
+.bannerSubMessage{
+    text-align: center;
+    margin-bottom: 10px;
+}
+.accountInfoContainer{
+}
+.subContainer{
+    
+    border: 2px solid var(--t-color);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-right: none;
+    border-left: none;
+}
+.ballanceContainer{
+    display: flex;
+    flex-direction: column;
+    
+}
+.ballanceMessage{
+    text-align: center;
+}
+.ballance{
+    text-align:  center;
+}
+.incomeVsExpenseContainer{
+    /* background-color: var(--t-color); */
+    background-color: rgba(0,0,0,.1);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    /* overflow: visible; */
+    width: auto;
+}
+.ieContainer{
+    /* height: 30px; */
+    width: 150px;
+    text-align: center;
+    overflow: visible;
+    width: auto;
+    padding: 10px 10px;
+    
+}
+.money{
+    /* position: absolute; */
+    overflow: visible;
+    /* top: 50%; */
+    transform: translate3d(-50%,25%,0);
+}
+.ieContainer:nth-of-type(1){
+    border-right: 2px solid var(--t-color);
+}
+.possitive::before{
+    color: green;
+    /* margin: 0 10px; */
+    content: "+";
+}
+.negative::before{
+    color:red;
+    content: "-";
+    /* margin: 0 10px; */
+}
+.transactionContainer{
+    margin-top: 20px;
+    min-width: 200px;
+    /* width: 100vw; */
+    border: 2px dashed var(--t-color);
+    border-radius: 5px;
+}
+.transactionMainMessage{
+    text-align: center;
+}
+
+.transactionTable{
+    background-color: rgba(0,0,0,.1);
+    width: 100%;
+}
+.transactionRow{
+    
+    border: 2 solid var(--t-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.transactionAmount{
+    min-width: 100px;
+    justify-content: right;
+    text-align: center;
+}
+.transactionMessage{
+    margin: 0 10px;
+    /* justify-content:; */
+}
+.transactionAmount{
+    align-items: center;
+    /* margin-right: 10px; */
+    margin:0 5px;
+}
+.transactionRow:nth-child(even){
+    background-color: rgba(0,0,0,.1);
+}
+span{
+    max-width: 200px;
+    overflow-wrap: break-word
+}
+.transactionCreator{
+    margin: 30px;
+    border: 2px dashed var(--t-color);
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.transactionCreator h5{
+    margin: 2px;
+    text-align: center;
+    /* font-size: ; */
+}
+.transactionDescription input,.transactionValue input{
+    background-color: rgba(0,0,0,.1);
+    border: 1px solid var(--t-color);
+    border-radius: 5px;
+    box-shadow: none;
+    margin-top: 10px;
+    
+}
+.transactionDescription input:focus,.transactionValue input:focus{
+    outline: none;
+    border: 1px dashed var(--t-color);
+}
+.transactionTypeSelect{
+    border: 1px solid var(--t-color);
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+.delete{
+    position: absolute;
+    clip-path: polygon(20% 0%, 0% 20%, 30% 50%, 0% 80%, 20% 100%, 50% 70%, 80% 100%, 100% 80%, 70% 50%, 100% 20%, 80% 0%, 50% 30%);
+    background-color: red;
+    width: 10px;
+    height: 10px;
+    visibility: hidden;
+    /* transform: translateY(100%); */
+    /* position:sticky; */
+}
+.transactionRow:hover .delete{
+   visibility: visible;
+}
+.transactionRow:focus .delete{
+    visibility: visible;
+    border: 2 solid var(--t-color);
+ }
+.transactionTable tr{
+    border: 2 solid var(--q-color);
+}
+ 
