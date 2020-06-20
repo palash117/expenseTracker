@@ -66,6 +66,7 @@ var deleteTransaction=(event)=>{
     
     updateDisplay();
     updateEventListeners();
+    updateLocalStorage();
 }
 
 

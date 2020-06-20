@@ -906,7 +906,7 @@ parcelRequire = function (e, r, t, n) {
     },
         S = function S(e) {
       var n = e.target.getAttribute("idValue");
-      r.deleteTransaction(n), g(), s();
+      r.deleteTransaction(n), g(), s(), v();
     },
         v = function v() {
       localStorage.setItem(u, r.serialize());
