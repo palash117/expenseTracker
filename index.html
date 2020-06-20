@@ -9,6 +9,17 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="notification hide">
+        <div class="notificationBody">
+        <div class="closeNotification"></div>
+        <div class="notificationTitle">
+            error!
+        </div>
+        <div class="notificationMesasge">
+            its an error
+        </div>
+    </div>
+    </div>
     <div class="mainContainer">
         <div class="banner">
             <div class="bannerMessage">
@@ -31,7 +42,7 @@
                     <h5>Transaction Description</h5>
                 </div>
                 <div class="transactionValue">
-                    <input type="number" class="transactionNumber" id="transactionAmountInput">
+                    <input type="number" class="transactionNumber" id="transactionAmountInput" min="1">
                     <h5>Transaction Amount</h5>
                 </div>
                 <button class="addTransaction" id="transactionSubmit">create transaction</button>

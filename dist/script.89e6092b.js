@@ -1018,11 +1018,16 @@ var elAccountInfo;
 var elTxnType;
 var elTxnDescription;
 var elTxnAmount;
-var elTxnSubmit; //variables
+var elTxnSubmit;
+var elNotification;
+var elNotificationTitle;
+var elNotificationMessage;
+var elNotificationClose; //variables
 
 var expenseManager; //const
 
-var EXPENSE_MANAGER_KEY = "EXPENSE_MANAGER_KEY"; //init
+var EXPENSE_MANAGER_KEY = "EXPENSE_MANAGER_KEY";
+var DEFAULT_NOTIFY_TIMEOUT = 10000; //init
 
 var init = function init() {
   initDomRefference();
@@ -1030,6 +1035,7 @@ var init = function init() {
   initExpenseManager();
   updateDisplay();
   updateEventListeners();
+  callNotify('loaded', 'please sart', 10000);
 }; //initDomRefference
 
 
@@ -1039,6 +1045,10 @@ var initDomRefference = function initDomRefference() {
   elTxnDescription = document.querySelector('#transactionDescriptionInput');
   elTxnAmount = document.querySelector('#transactionAmountInput');
   elTxnSubmit = document.querySelector('#transactionSubmit');
+  elNotification = document.querySelector('.notification');
+  elNotificationTitle = document.querySelector('.notificationTitle');
+  elNotificationMessage = document.querySelector('.notificationMesasge');
+  elNotificationClose = document.querySelector('.closeNotification');
 }; //setupEventListeners
 
 
@@ -1065,15 +1075,26 @@ var addTransaction = function addTransaction() {
   var transactionAmount = elTxnAmount.value;
   var transactionDescription = elTxnDescription.value;
 
+  if (transactionAmount < 0) {
+    callNotify('Uh oh!', 'Expense/Income amount can not be -ve', DEFAULT_NOTIFY_TIMEOUT);
+    return;
+  }
+
   if (transactionType != 1) {
     transactionAmount *= -1;
   } // transactionType
 
 
-  expenseManager.addTransaction(transactionAmount, transactionDescription);
+  try {
+    expenseManager.addTransaction(transactionAmount, transactionDescription);
+  } catch (err) {
+    callNotify('Uh oh!', err, DEFAULT_NOTIFY_TIMEOUT);
+  }
+
   setTimeout(updateLocalStorage, 1);
   updateDisplay();
   updateEventListeners();
+  cleanTransactionCreatorInputs();
 };
 
 var deleteTransaction = function deleteTransaction(event) {
@@ -1081,6 +1102,7 @@ var deleteTransaction = function deleteTransaction(event) {
   expenseManager.deleteTransaction(transactionId);
   updateDisplay();
   updateEventListeners();
+  updateLocalStorage();
 };
 
 var updateLocalStorage = function updateLocalStorage() {
@@ -1091,6 +1113,32 @@ var updateLocalStorage = function updateLocalStorage() {
 var updateDisplay = function updateDisplay() {
   elAccountInfo.innerHTML = expenseManager.completeAccountHTML();
 };
+
+var cleanTransactionCreatorInputs = function cleanTransactionCreatorInputs() {
+  elTxnDescription.value = '';
+  elTxnAmount.value = 0;
+}; // notification
+
+
+var notify = function notify(title, message) {
+  var timeout = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 5000;
+  elNotification.classList.remove('hide');
+  elNotificationTitle.innerHTML = title;
+  elNotificationMessage.innerHTML = message;
+  var key = setTimeout(function () {
+    elNotification.classList.add('hide');
+  }, timeout);
+  return function closeNotify() {
+    elNotification.classList.add('hide');
+    clearTimeout(key);
+  };
+};
+
+var callNotify = function callNotify(title, message, timeout) {
+  closeNotify = notify(title, message, timeout);
+  elNotificationClose.addEventListener('click', closeNotify);
+}; // init call
+
 
 window.onload = init;
 },{"./modules/expenseManager":"src/script/modules/expenseManager.js"}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
@@ -1121,7 +1169,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54092" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50205" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
