@@ -130,7 +130,7 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-var TransactionType = require('./expenseType');
+var TransactionType = require("./expenseType");
 
 var Transaction = /*#__PURE__*/function () {
   function Transaction(amount, message, transactionType, id, createdDate, deleted) {
@@ -158,7 +158,22 @@ var Transaction = /*#__PURE__*/function () {
     key: "toHTML",
     value: function toHTML() {
       var type = this.type == TransactionType.NEGATIVE_EXPENSE ? "negative" : "possitive";
-      return "<tr class=\"transactionRow\"><td class=\"delete\" idValue=\"".concat(this.id, "\"></td><td class=\"transactionAmount ").concat(type, "\">").concat(this.amount, "</td><td class=\"transactionMessage\"><span>").concat(this.message, "</span></td></tr>");
+      return "<tr class=\"transactionRow\"><td class=\"delete\" idValue=\"".concat(this.id, "\"></td><td class=\"transactionAmount ").concat(type, "\">").concat(this.amount, "</td><td class=\"transactionMessage\"><span>").concat(this.message, "</span></td><td class=\"transactionDate\"><span>").concat(this.getFormattedDate(), "</span></td></tr>");
+    }
+  }, {
+    key: "getFormattedDate",
+    value: function getFormattedDate() {
+      var d = new Date(this.createDate);
+      var ye = new Intl.DateTimeFormat("en", {
+        year: "numeric"
+      }).format(d);
+      var mo = new Intl.DateTimeFormat("en", {
+        month: "short"
+      }).format(d);
+      var da = new Intl.DateTimeFormat("en", {
+        day: "2-digit"
+      }).format(d);
+      return "".concat(da, "-").concat(mo, "-").concat(ye);
     }
   }]);
 
@@ -857,18 +872,18 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-var Transaction = require('./transaction');
+var Transaction = require("./transaction");
 
-var ExpenseType = require('./expenseType');
+var ExpenseType = require("./expenseType");
 
-var _require = require('uuid'),
+var _require = require("uuid"),
     uuidv4 = _require.v4;
 
 var ExpenseManager = /*#__PURE__*/function () {
   function ExpenseManager(mode) {
     _classCallCheck(this, ExpenseManager);
 
-    if ('test' == mode) {
+    if ("test" == mode) {
       this.testMode = true;
     } else {
       this.testMode = false;
@@ -880,7 +895,7 @@ var ExpenseManager = /*#__PURE__*/function () {
 
   _createClass(ExpenseManager, [{
     key: "addTransaction",
-    value: function addTransaction(amount, message) {
+    value: function addTransaction(amount, message, createdDate) {
       if (isNaN(amount)) {
         throw "transaction amount not a number ".concat(amount);
       }
@@ -891,7 +906,7 @@ var ExpenseManager = /*#__PURE__*/function () {
 
       var type = amount > 0 ? ExpenseType.POSITIVE_EXPENSE : ExpenseType.NEGATIVE_EXPENSE;
       amount = Math.abs(amount);
-      var transaction = new Transaction(amount, message, type, this.testMode ? '1234' : uuidv4());
+      var transaction = new Transaction(amount, message, type, this.testMode ? "1234" : uuidv4(), createdDate);
       this.transactionList.push(transaction);
     }
   }, {
@@ -1008,7 +1023,7 @@ var ExpenseManager = /*#__PURE__*/function () {
 }();
 
 module.exports = ExpenseManager;
-},{"./transaction":"src/script/modules/transaction.js","./expenseType":"src/script/modules/expenseType.js","uuid":"node_modules/uuid/dist/esm-browser/index.js"}],"src/script/script.js":[function(require,module,exports) {
+},{"./transaction":"src/script/modules/transaction.js","./expenseType":"src/script/modules/expenseType.js","uuid":"node_modules/uuid/dist/esm-browser/index.js"}],"script.js":[function(require,module,exports) {
 console.log("hello expense manager"); //requires
 
 var ExpenseManager = require('./modules/expenseManager'); //DOM elements 
@@ -1034,8 +1049,7 @@ var init = function init() {
   setupEventListeners();
   initExpenseManager();
   updateDisplay();
-  updateEventListeners();
-  callNotify('loaded', 'please sart', 10000);
+  updateEventListeners(); // callNotify('loaded','please sart', 10000);
 }; //initDomRefference
 
 
@@ -1169,7 +1183,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50205" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59277" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -1345,5 +1359,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","src/script/script.js"], null)
+},{}]},{},["../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","script.js"], null)
 //# sourceMappingURL=/script.89e6092b.js.map
