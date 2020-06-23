@@ -119,1520 +119,853 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   return newRequire;
 })({"dist/script.js":[function(require,module,exports) {
 var define;
-var global = arguments[3];
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
-// modules are defined as an array
-// [ module function, map of requires ]
-//
-// map of requires is short require name -> numeric require
-//
-// anything defined in a previous bundle is accessed via the
-// orig method which is the require for previous bundles
-parcelRequire = function (modules, cache, entry, globalName) {
-  // Save the require from previous bundle to this closure if any
-  var previousRequire = typeof parcelRequire === 'function' && parcelRequire;
-  var nodeRequire = typeof require === 'function' && require;
+parcelRequire = function (e, r, t, n) {
+  var i,
+      o = "function" == typeof parcelRequire && parcelRequire,
+      u = "function" == typeof require && require;
 
-  function newRequire(name, jumped) {
-    if (!cache[name]) {
-      if (!modules[name]) {
-        // if we cannot find the module within our internal map or
-        // cache jump to the current global require ie. the last bundle
-        // that was added to the page.
-        var currentRequire = typeof parcelRequire === 'function' && parcelRequire;
-
-        if (!jumped && currentRequire) {
-          return currentRequire(name, true);
-        } // If there are other bundles on this page the require from the
-        // previous one is saved to 'previousRequire'. Repeat this as
-        // many times as there are bundles until the module is found or
-        // we exhaust the require chain.
-
-
-        if (previousRequire) {
-          return previousRequire(name, true);
-        } // Try the node require function if it exists.
-
-
-        if (nodeRequire && typeof name === 'string') {
-          return nodeRequire(name);
-        }
-
-        var err = new Error('Cannot find module \'' + name + '\'');
-        err.code = 'MODULE_NOT_FOUND';
-        throw err;
+  function f(t, n) {
+    if (!r[t]) {
+      if (!e[t]) {
+        var i = "function" == typeof parcelRequire && parcelRequire;
+        if (!n && i) return i(t, !0);
+        if (o) return o(t, !0);
+        if (u && "string" == typeof t) return u(t);
+        var c = new Error("Cannot find module '" + t + "'");
+        throw c.code = "MODULE_NOT_FOUND", c;
       }
 
-      localRequire.resolve = resolve;
-      localRequire.cache = {};
-      var module = cache[name] = new newRequire.Module(name);
-      modules[name][0].call(module.exports, localRequire, module, module.exports, this);
+      p.resolve = function (r) {
+        return e[t][1][r] || r;
+      }, p.cache = {};
+      var l = r[t] = new f.Module(t);
+      e[t][0].call(l.exports, p, l, l.exports, this);
     }
 
-    return cache[name].exports;
+    return r[t].exports;
 
-    function localRequire(x) {
-      return newRequire(localRequire.resolve(x));
-    }
-
-    function resolve(x) {
-      return modules[name][1][x] || x;
+    function p(e) {
+      return f(p.resolve(e));
     }
   }
 
-  function Module(moduleName) {
-    this.id = moduleName;
-    this.bundle = newRequire;
-    this.exports = {};
-  }
-
-  newRequire.isParcelRequire = true;
-  newRequire.Module = Module;
-  newRequire.modules = modules;
-  newRequire.cache = cache;
-  newRequire.parent = previousRequire;
-
-  newRequire.register = function (id, exports) {
-    modules[id] = [function (require, module) {
-      module.exports = exports;
+  f.isParcelRequire = !0, f.Module = function (e) {
+    this.id = e, this.bundle = f, this.exports = {};
+  }, f.modules = e, f.cache = r, f.parent = o, f.register = function (r, t) {
+    e[r] = [function (e, r) {
+      r.exports = t;
     }, {}];
   };
 
-  var error;
-
-  for (var i = 0; i < entry.length; i++) {
+  for (var c = 0; c < t.length; c++) {
     try {
-      newRequire(entry[i]);
+      f(t[c]);
     } catch (e) {
-      // Save first error but execute all entries
-      if (!error) {
-        error = e;
-      }
+      i || (i = e);
     }
   }
 
-  if (entry.length) {
-    // Expose entry point to Node, AMD or browser globals
-    // Based on https://github.com/ForbesLindesay/umd/blob/master/template.js
-    var mainExports = newRequire(entry[entry.length - 1]); // CommonJS
-
-    if ((typeof exports === "undefined" ? "undefined" : _typeof(exports)) === "object" && typeof module !== "undefined") {
-      module.exports = mainExports; // RequireJS
-    } else if (typeof define === "function" && define.amd) {
-      define(function () {
-        return mainExports;
-      }); // <script>
-    } else if (globalName) {
-      this[globalName] = mainExports;
-    }
-  } // Override the current require with this new one
-
-
-  parcelRequire = newRequire;
-
-  if (error) {
-    // throw error from earlier, _after updating parcelRequire_
-    throw error;
+  if (t.length) {
+    var l = f(t[t.length - 1]);
+    "object" == (typeof exports === "undefined" ? "undefined" : _typeof(exports)) && "undefined" != typeof module ? module.exports = l : "function" == typeof define && define.amd ? define(function () {
+      return l;
+    }) : n && (this[n] = l);
   }
 
-  return newRequire;
+  if (parcelRequire = f, i) throw i;
+  return f;
 }({
-  "src/script/modules/expenseType.js": [function (require, module, exports) {
-    var ExepnseType = {
+  "jKfF": [function (require, module, exports) {
+    var E = {
       POSITIVE_EXPENSE: 1,
       NEGATIVE_EXPENSE: 2
     };
-    module.exports = ExepnseType;
+    module.exports = E;
   }, {}],
-  "src/script/modules/transaction.js": [function (require, module, exports) {
-    function _classCallCheck(instance, Constructor) {
-      if (!(instance instanceof Constructor)) {
-        throw new TypeError("Cannot call a class as a function");
+  "ap6O": [function (require, module, exports) {
+    function t(t, e) {
+      if (!(t instanceof e)) throw new TypeError("Cannot call a class as a function");
+    }
+
+    function e(t, e) {
+      for (var a = 0; a < e.length; a++) {
+        var n = e[a];
+        n.enumerable = n.enumerable || !1, n.configurable = !0, "value" in n && (n.writable = !0), Object.defineProperty(t, n.key, n);
       }
     }
 
-    function _defineProperties(target, props) {
-      for (var i = 0; i < props.length; i++) {
-        var descriptor = props[i];
-        descriptor.enumerable = descriptor.enumerable || false;
-        descriptor.configurable = true;
-        if ("value" in descriptor) descriptor.writable = true;
-        Object.defineProperty(target, descriptor.key, descriptor);
-      }
+    function a(t, a, n) {
+      return a && e(t.prototype, a), n && e(t, n), t;
     }
 
-    function _createClass(Constructor, protoProps, staticProps) {
-      if (protoProps) _defineProperties(Constructor.prototype, protoProps);
-      if (staticProps) _defineProperties(Constructor, staticProps);
-      return Constructor;
-    }
-
-    var TransactionType = require('./expenseType');
-
-    var Transaction = /*#__PURE__*/function () {
-      function Transaction(amount, message, transactionType, id, createdDate, deleted) {
-        _classCallCheck(this, Transaction);
-
-        this.amount = amount;
-        this.message = message;
-        this.type = transactionType;
-        this.id = id;
-
-        if (createdDate == undefined) {
-          this.createDate = new Date().getTime();
-        } else {
-          this.createDate = createdDate;
-        }
-
-        if (deleted == true) {
-          this.deleted = true;
-        } else {
-          this.deleted = false;
-        }
+    var n = require("./expenseType"),
+        o = function () {
+      function e(a, n, o, r, s, i) {
+        t(this, e), this.amount = a, this.message = n, this.type = o, this.id = r, this.createDate = null == s ? new Date().getTime() : s, this.deleted = 1 == i;
       }
 
-      _createClass(Transaction, [{
+      return a(e, [{
         key: "toHTML",
-        value: function toHTML() {
-          var type = this.type == TransactionType.NEGATIVE_EXPENSE ? "negative" : "possitive";
-          return "<tr class=\"transactionRow\"><td class=\"delete\" idValue=\"".concat(this.id, "\"></td><td class=\"transactionAmount ").concat(type, "\">").concat(this.amount, "</td><td class=\"transactionMessage\"><span>").concat(this.message, "</span></td></tr>");
+        value: function value() {
+          var t = this.type == n.NEGATIVE_EXPENSE ? "negative" : "possitive";
+          return '<tr class="transactionRow"><td class="delete" idValue="'.concat(this.id, '"></td><td class="transactionAmount ').concat(t, '">').concat(this.amount, '</td><td class="transactionMessage"><span>').concat(this.message, '</span></td><td class="transactionDate"><span>').concat(this.getFormattedDate(), "</span></td></tr>");
         }
-      }]);
-
-      return Transaction;
+      }, {
+        key: "getFormattedDate",
+        value: function value() {
+          var t = new Date(this.createDate),
+              e = new Intl.DateTimeFormat("en", {
+            year: "numeric"
+          }).format(t),
+              a = new Intl.DateTimeFormat("en", {
+            month: "short"
+          }).format(t),
+              n = new Intl.DateTimeFormat("en", {
+            day: "2-digit"
+          }).format(t);
+          return "".concat(n, "-").concat(a, "-").concat(e);
+        }
+      }]), e;
     }();
 
-    module.exports = Transaction;
+    module.exports = o;
   }, {
-    "./expenseType": "src/script/modules/expenseType.js"
+    "./expenseType": "jKfF"
   }],
-  "node_modules/uuid/dist/esm-browser/rng.js": [function (require, module, exports) {
+  "cT7V": [function (require, module, exports) {
     "use strict";
 
     Object.defineProperty(exports, "__esModule", {
-      value: true
-    });
-    exports.default = rng; // Unique ID creation requires a high quality random # generator. In the browser we therefore
-    // require the crypto API and do not support built-in fallback to lower quality random number
-    // generators (like Math.random()).
-    // getRandomValues needs to be invoked in a context where "this" is a Crypto implementation. Also,
-    // find the complete implementation of crypto (msCrypto) on IE11.
+      value: !0
+    }), exports.default = o;
+    var e = "undefined" != typeof crypto && crypto.getRandomValues && crypto.getRandomValues.bind(crypto) || "undefined" != typeof msCrypto && "function" == typeof msCrypto.getRandomValues && msCrypto.getRandomValues.bind(msCrypto),
+        t = new Uint8Array(16);
 
-    var getRandomValues = typeof crypto !== 'undefined' && crypto.getRandomValues && crypto.getRandomValues.bind(crypto) || typeof msCrypto !== 'undefined' && typeof msCrypto.getRandomValues === 'function' && msCrypto.getRandomValues.bind(msCrypto);
-    var rnds8 = new Uint8Array(16);
-
-    function rng() {
-      if (!getRandomValues) {
-        throw new Error('crypto.getRandomValues() not supported. See https://github.com/uuidjs/uuid#getrandomvalues-not-supported');
-      }
-
-      return getRandomValues(rnds8);
+    function o() {
+      if (!e) throw new Error("crypto.getRandomValues() not supported. See https://github.com/uuidjs/uuid#getrandomvalues-not-supported");
+      return e(t);
     }
   }, {}],
-  "node_modules/uuid/dist/esm-browser/bytesToUuid.js": [function (require, module, exports) {
+  "Qdkx": [function (require, module, exports) {
     "use strict";
 
     Object.defineProperty(exports, "__esModule", {
-      value: true
-    });
-    exports.default = void 0;
-    /**
-     * Convert array of 16 byte values to UUID string format of the form:
-     * XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
-     */
+      value: !0
+    }), exports.default = void 0;
 
-    var byteToHex = [];
-
-    for (var i = 0; i < 256; ++i) {
-      byteToHex.push((i + 0x100).toString(16).substr(1));
+    for (var e = [], r = 0; r < 256; ++r) {
+      e.push((r + 256).toString(16).substr(1));
     }
 
-    function bytesToUuid(buf, offset) {
-      var i = offset || 0;
-      var bth = byteToHex; // Note: Be careful editing this code!  It's been tuned for performance
-      // and works in ways you may not expect. See https://github.com/uuidjs/uuid/pull/434
-
-      return (bth[buf[i + 0]] + bth[buf[i + 1]] + bth[buf[i + 2]] + bth[buf[i + 3]] + '-' + bth[buf[i + 4]] + bth[buf[i + 5]] + '-' + bth[buf[i + 6]] + bth[buf[i + 7]] + '-' + bth[buf[i + 8]] + bth[buf[i + 9]] + '-' + bth[buf[i + 10]] + bth[buf[i + 11]] + bth[buf[i + 12]] + bth[buf[i + 13]] + bth[buf[i + 14]] + bth[buf[i + 15]]).toLowerCase();
+    function t(r, t) {
+      var o = t || 0,
+          s = e;
+      return (s[r[o + 0]] + s[r[o + 1]] + s[r[o + 2]] + s[r[o + 3]] + "-" + s[r[o + 4]] + s[r[o + 5]] + "-" + s[r[o + 6]] + s[r[o + 7]] + "-" + s[r[o + 8]] + s[r[o + 9]] + "-" + s[r[o + 10]] + s[r[o + 11]] + s[r[o + 12]] + s[r[o + 13]] + s[r[o + 14]] + s[r[o + 15]]).toLowerCase();
     }
 
-    var _default = bytesToUuid;
-    exports.default = _default;
+    var o = t;
+    exports.default = o;
   }, {}],
-  "node_modules/uuid/dist/esm-browser/v1.js": [function (require, module, exports) {
+  "nQZ2": [function (require, module, exports) {
     "use strict";
 
     Object.defineProperty(exports, "__esModule", {
-      value: true
-    });
-    exports.default = void 0;
+      value: !0
+    }), exports.default = void 0;
+    var e,
+        r,
+        o = u(require("./rng.js")),
+        s = u(require("./bytesToUuid.js"));
 
-    var _rng = _interopRequireDefault(require("./rng.js"));
-
-    var _bytesToUuid = _interopRequireDefault(require("./bytesToUuid.js"));
-
-    function _interopRequireDefault(obj) {
-      return obj && obj.__esModule ? obj : {
-        default: obj
-      };
-    } // **`v1()` - Generate time-based UUID**
-    //
-    // Inspired by https://github.com/LiosK/UUID.js
-    // and http://docs.python.org/library/uuid.html
-
-
-    var _nodeId;
-
-    var _clockseq; // Previous uuid creation time
-
-
-    var _lastMSecs = 0;
-    var _lastNSecs = 0; // See https://github.com/uuidjs/uuid for API details
-
-    function v1(options, buf, offset) {
-      var i = buf && offset || 0;
-      var b = buf || [];
-      options = options || {};
-      var node = options.node || _nodeId;
-      var clockseq = options.clockseq !== undefined ? options.clockseq : _clockseq; // node and clockseq need to be initialized to random values if they're not
-      // specified.  We do this lazily to minimize issues related to insufficient
-      // system entropy.  See #189
-
-      if (node == null || clockseq == null) {
-        var seedBytes = options.random || (options.rng || _rng.default)();
-
-        if (node == null) {
-          // Per 4.5, create and 48-bit node id, (47 random bits + multicast bit = 1)
-          node = _nodeId = [seedBytes[0] | 0x01, seedBytes[1], seedBytes[2], seedBytes[3], seedBytes[4], seedBytes[5]];
-        }
-
-        if (clockseq == null) {
-          // Per 4.2.2, randomize (14 bit) clockseq
-          clockseq = _clockseq = (seedBytes[6] << 8 | seedBytes[7]) & 0x3fff;
-        }
-      } // UUID timestamps are 100 nano-second units since the Gregorian epoch,
-      // (1582-10-15 00:00).  JSNumbers aren't precise enough for this, so
-      // time is handled internally as 'msecs' (integer milliseconds) and 'nsecs'
-      // (100-nanoseconds offset from msecs) since unix epoch, 1970-01-01 00:00.
-
-
-      var msecs = options.msecs !== undefined ? options.msecs : Date.now(); // Per 4.2.1.2, use count of uuid's generated during the current clock
-      // cycle to simulate higher resolution clock
-
-      var nsecs = options.nsecs !== undefined ? options.nsecs : _lastNSecs + 1; // Time since last uuid creation (in msecs)
-
-      var dt = msecs - _lastMSecs + (nsecs - _lastNSecs) / 10000; // Per 4.2.1.2, Bump clockseq on clock regression
-
-      if (dt < 0 && options.clockseq === undefined) {
-        clockseq = clockseq + 1 & 0x3fff;
-      } // Reset nsecs if clock regresses (new clockseq) or we've moved onto a new
-      // time interval
-
-
-      if ((dt < 0 || msecs > _lastMSecs) && options.nsecs === undefined) {
-        nsecs = 0;
-      } // Per 4.2.1.2 Throw error if too many uuids are requested
-
-
-      if (nsecs >= 10000) {
-        throw new Error("uuid.v1(): Can't create more than 10M uuids/sec");
-      }
-
-      _lastMSecs = msecs;
-      _lastNSecs = nsecs;
-      _clockseq = clockseq; // Per 4.1.4 - Convert from unix epoch to Gregorian epoch
-
-      msecs += 12219292800000; // `time_low`
-
-      var tl = ((msecs & 0xfffffff) * 10000 + nsecs) % 0x100000000;
-      b[i++] = tl >>> 24 & 0xff;
-      b[i++] = tl >>> 16 & 0xff;
-      b[i++] = tl >>> 8 & 0xff;
-      b[i++] = tl & 0xff; // `time_mid`
-
-      var tmh = msecs / 0x100000000 * 10000 & 0xfffffff;
-      b[i++] = tmh >>> 8 & 0xff;
-      b[i++] = tmh & 0xff; // `time_high_and_version`
-
-      b[i++] = tmh >>> 24 & 0xf | 0x10; // include version
-
-      b[i++] = tmh >>> 16 & 0xff; // `clock_seq_hi_and_reserved` (Per 4.2.2 - include variant)
-
-      b[i++] = clockseq >>> 8 | 0x80; // `clock_seq_low`
-
-      b[i++] = clockseq & 0xff; // `node`
-
-      for (var n = 0; n < 6; ++n) {
-        b[i + n] = node[n];
-      }
-
-      return buf || (0, _bytesToUuid.default)(b);
-    }
-
-    var _default = v1;
-    exports.default = _default;
-  }, {
-    "./rng.js": "node_modules/uuid/dist/esm-browser/rng.js",
-    "./bytesToUuid.js": "node_modules/uuid/dist/esm-browser/bytesToUuid.js"
-  }],
-  "node_modules/uuid/dist/esm-browser/v35.js": [function (require, module, exports) {
-    "use strict";
-
-    Object.defineProperty(exports, "__esModule", {
-      value: true
-    });
-    exports.default = _default;
-    exports.URL = exports.DNS = void 0;
-
-    var _bytesToUuid = _interopRequireDefault(require("./bytesToUuid.js"));
-
-    function _interopRequireDefault(obj) {
-      return obj && obj.__esModule ? obj : {
-        default: obj
+    function u(e) {
+      return e && e.__esModule ? e : {
+        default: e
       };
     }
 
-    function uuidToBytes(uuid) {
-      // Note: We assume we're being passed a valid uuid string
-      var bytes = [];
-      uuid.replace(/[a-fA-F0-9]{2}/g, function (hex) {
-        bytes.push(parseInt(hex, 16));
-      });
-      return bytes;
-    }
+    var n = 0,
+        t = 0;
 
-    function stringToBytes(str) {
-      str = unescape(encodeURIComponent(str)); // UTF8 escape
+    function a(u, a, d) {
+      var l = a && d || 0,
+          c = a || [],
+          i = (u = u || {}).node || e,
+          v = void 0 !== u.clockseq ? u.clockseq : r;
 
-      var bytes = [];
-
-      for (var i = 0; i < str.length; ++i) {
-        bytes.push(str.charCodeAt(i));
+      if (null == i || null == v) {
+        var f = u.random || (u.rng || o.default)();
+        null == i && (i = e = [1 | f[0], f[1], f[2], f[3], f[4], f[5]]), null == v && (v = r = 16383 & (f[6] << 8 | f[7]));
       }
 
-      return bytes;
+      var q = void 0 !== u.msecs ? u.msecs : Date.now(),
+          m = void 0 !== u.nsecs ? u.nsecs : t + 1,
+          p = q - n + (m - t) / 1e4;
+      if (p < 0 && void 0 === u.clockseq && (v = v + 1 & 16383), (p < 0 || q > n) && void 0 === u.nsecs && (m = 0), m >= 1e4) throw new Error("uuid.v1(): Can't create more than 10M uuids/sec");
+      n = q, t = m, r = v;
+
+      var _ = (1e4 * (268435455 & (q += 122192928e5)) + m) % 4294967296;
+
+      c[l++] = _ >>> 24 & 255, c[l++] = _ >>> 16 & 255, c[l++] = _ >>> 8 & 255, c[l++] = 255 & _;
+      var j = q / 4294967296 * 1e4 & 268435455;
+      c[l++] = j >>> 8 & 255, c[l++] = 255 & j, c[l++] = j >>> 24 & 15 | 16, c[l++] = j >>> 16 & 255, c[l++] = v >>> 8 | 128, c[l++] = 255 & v;
+
+      for (var k = 0; k < 6; ++k) {
+        c[l + k] = i[k];
+      }
+
+      return a || (0, s.default)(c);
     }
 
-    var DNS = '6ba7b810-9dad-11d1-80b4-00c04fd430c8';
-    exports.DNS = DNS;
-    var URL = '6ba7b811-9dad-11d1-80b4-00c04fd430c8';
-    exports.URL = URL;
+    var d = a;
+    exports.default = d;
+  }, {
+    "./rng.js": "cT7V",
+    "./bytesToUuid.js": "Qdkx"
+  }],
+  "y1M0": [function (require, module, exports) {
+    "use strict";
 
-    function _default(name, version, hashfunc) {
-      function generateUUID(value, namespace, buf, offset) {
-        var off = buf && offset || 0;
-        if (typeof value === 'string') value = stringToBytes(value);
-        if (typeof namespace === 'string') namespace = uuidToBytes(namespace);
+    Object.defineProperty(exports, "__esModule", {
+      value: !0
+    }), exports.default = u, exports.URL = exports.DNS = void 0;
+    var r = e(require("./bytesToUuid.js"));
 
-        if (!Array.isArray(value)) {
-          throw TypeError('value must be an array of bytes');
+    function e(r) {
+      return r && r.__esModule ? r : {
+        default: r
+      };
+    }
+
+    function t(r) {
+      var e = [];
+      return r.replace(/[a-fA-F0-9]{2}/g, function (r) {
+        e.push(parseInt(r, 16));
+      }), e;
+    }
+
+    function a(r) {
+      r = unescape(encodeURIComponent(r));
+
+      for (var e = [], t = 0; t < r.length; ++t) {
+        e.push(r.charCodeAt(t));
+      }
+
+      return e;
+    }
+
+    var n = "6ba7b810-9dad-11d1-80b4-00c04fd430c8";
+    exports.DNS = n;
+    var o = "6ba7b811-9dad-11d1-80b4-00c04fd430c8";
+
+    function u(e, u, s) {
+      function f(e, n, o, f) {
+        var c = o && f || 0;
+        if ("string" == typeof e && (e = a(e)), "string" == typeof n && (n = t(n)), !Array.isArray(e)) throw TypeError("value must be an array of bytes");
+        if (!Array.isArray(n) || 16 !== n.length) throw TypeError("namespace must be uuid string or an Array of 16 byte values");
+        var i = s(n.concat(e));
+        if (i[6] = 15 & i[6] | u, i[8] = 63 & i[8] | 128, o) for (var d = 0; d < 16; ++d) {
+          o[c + d] = i[d];
         }
-
-        if (!Array.isArray(namespace) || namespace.length !== 16) {
-          throw TypeError('namespace must be uuid string or an Array of 16 byte values');
-        } // Per 4.3
-
-
-        var bytes = hashfunc(namespace.concat(value));
-        bytes[6] = bytes[6] & 0x0f | version;
-        bytes[8] = bytes[8] & 0x3f | 0x80;
-
-        if (buf) {
-          for (var idx = 0; idx < 16; ++idx) {
-            buf[off + idx] = bytes[idx];
-          }
-        }
-
-        return buf || (0, _bytesToUuid.default)(bytes);
-      } // Function#name is not settable on some platforms (#270)
-
+        return o || (0, r.default)(i);
+      }
 
       try {
-        generateUUID.name = name; // eslint-disable-next-line no-empty
-      } catch (err) {} // For CommonJS default export support
+        f.name = e;
+      } catch (c) {}
 
-
-      generateUUID.DNS = DNS;
-      generateUUID.URL = URL;
-      return generateUUID;
+      return f.DNS = n, f.URL = o, f;
     }
+
+    exports.URL = o;
   }, {
-    "./bytesToUuid.js": "node_modules/uuid/dist/esm-browser/bytesToUuid.js"
+    "./bytesToUuid.js": "Qdkx"
   }],
-  "node_modules/uuid/dist/esm-browser/md5.js": [function (require, module, exports) {
+  "hNcK": [function (require, module, exports) {
     "use strict";
 
-    Object.defineProperty(exports, "__esModule", {
-      value: true
-    });
-    exports.default = void 0;
-    /*
-     * Browser-compatible JavaScript MD5
-     *
-     * Modification of JavaScript MD5
-     * https://github.com/blueimp/JavaScript-MD5
-     *
-     * Copyright 2011, Sebastian Tschan
-     * https://blueimp.net
-     *
-     * Licensed under the MIT license:
-     * https://opensource.org/licenses/MIT
-     *
-     * Based on
-     * A JavaScript implementation of the RSA Data Security, Inc. MD5 Message
-     * Digest Algorithm, as defined in RFC 1321.
-     * Version 2.2 Copyright (C) Paul Johnston 1999 - 2009
-     * Other contributors: Greg Holt, Andrew Kepert, Ydnar, Lostinet
-     * Distributed under the BSD License
-     * See http://pajhome.org.uk/crypt/md5 for more info.
-     */
+    function n(n) {
+      if ("string" == typeof n) {
+        var t = unescape(encodeURIComponent(n));
+        n = new Uint8Array(t.length);
 
-    function md5(bytes) {
-      if (typeof bytes === 'string') {
-        var msg = unescape(encodeURIComponent(bytes)); // UTF8 escape
-
-        bytes = new Uint8Array(msg.length);
-
-        for (var i = 0; i < msg.length; ++i) {
-          bytes[i] = msg.charCodeAt(i);
+        for (var o = 0; o < t.length; ++o) {
+          n[o] = t.charCodeAt(o);
         }
       }
 
-      return md5ToHexEncodedArray(wordsToMd5(bytesToWords(bytes), bytes.length * 8));
+      return r(e(u(n), 8 * n.length));
     }
-    /*
-     * Convert an array of little-endian words to an array of bytes
-     */
 
-
-    function md5ToHexEncodedArray(input) {
-      var output = [];
-      var length32 = input.length * 32;
-      var hexTab = '0123456789abcdef';
-
-      for (var i = 0; i < length32; i += 8) {
-        var x = input[i >> 5] >>> i % 32 & 0xff;
-        var hex = parseInt(hexTab.charAt(x >>> 4 & 0x0f) + hexTab.charAt(x & 0x0f), 16);
-        output.push(hex);
+    function r(n) {
+      for (var r = [], t = 32 * n.length, e = 0; e < t; e += 8) {
+        var u = n[e >> 5] >>> e % 32 & 255,
+            o = parseInt("0123456789abcdef".charAt(u >>> 4 & 15) + "0123456789abcdef".charAt(15 & u), 16);
+        r.push(o);
       }
 
-      return output;
+      return r;
     }
-    /**
-     * Calculate output length with padding and bit length
-     */
 
-
-    function getOutputLength(inputLength8) {
-      return (inputLength8 + 64 >>> 9 << 4) + 14 + 1;
+    function t(n) {
+      return 14 + (n + 64 >>> 9 << 4) + 1;
     }
-    /*
-     * Calculate the MD5 of an array of little-endian words, and a bit length.
-     */
 
+    function e(n, r) {
+      n[r >> 5] |= 128 << r % 32, n[t(r) - 1] = r;
 
-    function wordsToMd5(x, len) {
-      /* append padding */
-      x[len >> 5] |= 0x80 << len % 32;
-      x[getOutputLength(len) - 1] = len;
-      var a = 1732584193;
-      var b = -271733879;
-      var c = -1732584194;
-      var d = 271733878;
-
-      for (var i = 0; i < x.length; i += 16) {
-        var olda = a;
-        var oldb = b;
-        var oldc = c;
-        var oldd = d;
-        a = md5ff(a, b, c, d, x[i], 7, -680876936);
-        d = md5ff(d, a, b, c, x[i + 1], 12, -389564586);
-        c = md5ff(c, d, a, b, x[i + 2], 17, 606105819);
-        b = md5ff(b, c, d, a, x[i + 3], 22, -1044525330);
-        a = md5ff(a, b, c, d, x[i + 4], 7, -176418897);
-        d = md5ff(d, a, b, c, x[i + 5], 12, 1200080426);
-        c = md5ff(c, d, a, b, x[i + 6], 17, -1473231341);
-        b = md5ff(b, c, d, a, x[i + 7], 22, -45705983);
-        a = md5ff(a, b, c, d, x[i + 8], 7, 1770035416);
-        d = md5ff(d, a, b, c, x[i + 9], 12, -1958414417);
-        c = md5ff(c, d, a, b, x[i + 10], 17, -42063);
-        b = md5ff(b, c, d, a, x[i + 11], 22, -1990404162);
-        a = md5ff(a, b, c, d, x[i + 12], 7, 1804603682);
-        d = md5ff(d, a, b, c, x[i + 13], 12, -40341101);
-        c = md5ff(c, d, a, b, x[i + 14], 17, -1502002290);
-        b = md5ff(b, c, d, a, x[i + 15], 22, 1236535329);
-        a = md5gg(a, b, c, d, x[i + 1], 5, -165796510);
-        d = md5gg(d, a, b, c, x[i + 6], 9, -1069501632);
-        c = md5gg(c, d, a, b, x[i + 11], 14, 643717713);
-        b = md5gg(b, c, d, a, x[i], 20, -373897302);
-        a = md5gg(a, b, c, d, x[i + 5], 5, -701558691);
-        d = md5gg(d, a, b, c, x[i + 10], 9, 38016083);
-        c = md5gg(c, d, a, b, x[i + 15], 14, -660478335);
-        b = md5gg(b, c, d, a, x[i + 4], 20, -405537848);
-        a = md5gg(a, b, c, d, x[i + 9], 5, 568446438);
-        d = md5gg(d, a, b, c, x[i + 14], 9, -1019803690);
-        c = md5gg(c, d, a, b, x[i + 3], 14, -187363961);
-        b = md5gg(b, c, d, a, x[i + 8], 20, 1163531501);
-        a = md5gg(a, b, c, d, x[i + 13], 5, -1444681467);
-        d = md5gg(d, a, b, c, x[i + 2], 9, -51403784);
-        c = md5gg(c, d, a, b, x[i + 7], 14, 1735328473);
-        b = md5gg(b, c, d, a, x[i + 12], 20, -1926607734);
-        a = md5hh(a, b, c, d, x[i + 5], 4, -378558);
-        d = md5hh(d, a, b, c, x[i + 8], 11, -2022574463);
-        c = md5hh(c, d, a, b, x[i + 11], 16, 1839030562);
-        b = md5hh(b, c, d, a, x[i + 14], 23, -35309556);
-        a = md5hh(a, b, c, d, x[i + 1], 4, -1530992060);
-        d = md5hh(d, a, b, c, x[i + 4], 11, 1272893353);
-        c = md5hh(c, d, a, b, x[i + 7], 16, -155497632);
-        b = md5hh(b, c, d, a, x[i + 10], 23, -1094730640);
-        a = md5hh(a, b, c, d, x[i + 13], 4, 681279174);
-        d = md5hh(d, a, b, c, x[i], 11, -358537222);
-        c = md5hh(c, d, a, b, x[i + 3], 16, -722521979);
-        b = md5hh(b, c, d, a, x[i + 6], 23, 76029189);
-        a = md5hh(a, b, c, d, x[i + 9], 4, -640364487);
-        d = md5hh(d, a, b, c, x[i + 12], 11, -421815835);
-        c = md5hh(c, d, a, b, x[i + 15], 16, 530742520);
-        b = md5hh(b, c, d, a, x[i + 2], 23, -995338651);
-        a = md5ii(a, b, c, d, x[i], 6, -198630844);
-        d = md5ii(d, a, b, c, x[i + 7], 10, 1126891415);
-        c = md5ii(c, d, a, b, x[i + 14], 15, -1416354905);
-        b = md5ii(b, c, d, a, x[i + 5], 21, -57434055);
-        a = md5ii(a, b, c, d, x[i + 12], 6, 1700485571);
-        d = md5ii(d, a, b, c, x[i + 3], 10, -1894986606);
-        c = md5ii(c, d, a, b, x[i + 10], 15, -1051523);
-        b = md5ii(b, c, d, a, x[i + 1], 21, -2054922799);
-        a = md5ii(a, b, c, d, x[i + 8], 6, 1873313359);
-        d = md5ii(d, a, b, c, x[i + 15], 10, -30611744);
-        c = md5ii(c, d, a, b, x[i + 6], 15, -1560198380);
-        b = md5ii(b, c, d, a, x[i + 13], 21, 1309151649);
-        a = md5ii(a, b, c, d, x[i + 4], 6, -145523070);
-        d = md5ii(d, a, b, c, x[i + 11], 10, -1120210379);
-        c = md5ii(c, d, a, b, x[i + 2], 15, 718787259);
-        b = md5ii(b, c, d, a, x[i + 9], 21, -343485551);
-        a = safeAdd(a, olda);
-        b = safeAdd(b, oldb);
-        c = safeAdd(c, oldc);
-        d = safeAdd(d, oldd);
+      for (var e = 1732584193, u = -271733879, f = -1732584194, a = 271733878, v = 0; v < n.length; v += 16) {
+        var s = e,
+            d = u,
+            p = f,
+            g = a;
+        e = c(e, u, f, a, n[v], 7, -680876936), a = c(a, e, u, f, n[v + 1], 12, -389564586), f = c(f, a, e, u, n[v + 2], 17, 606105819), u = c(u, f, a, e, n[v + 3], 22, -1044525330), e = c(e, u, f, a, n[v + 4], 7, -176418897), a = c(a, e, u, f, n[v + 5], 12, 1200080426), f = c(f, a, e, u, n[v + 6], 17, -1473231341), u = c(u, f, a, e, n[v + 7], 22, -45705983), e = c(e, u, f, a, n[v + 8], 7, 1770035416), a = c(a, e, u, f, n[v + 9], 12, -1958414417), f = c(f, a, e, u, n[v + 10], 17, -42063), u = c(u, f, a, e, n[v + 11], 22, -1990404162), e = c(e, u, f, a, n[v + 12], 7, 1804603682), a = c(a, e, u, f, n[v + 13], 12, -40341101), f = c(f, a, e, u, n[v + 14], 17, -1502002290), e = i(e, u = c(u, f, a, e, n[v + 15], 22, 1236535329), f, a, n[v + 1], 5, -165796510), a = i(a, e, u, f, n[v + 6], 9, -1069501632), f = i(f, a, e, u, n[v + 11], 14, 643717713), u = i(u, f, a, e, n[v], 20, -373897302), e = i(e, u, f, a, n[v + 5], 5, -701558691), a = i(a, e, u, f, n[v + 10], 9, 38016083), f = i(f, a, e, u, n[v + 15], 14, -660478335), u = i(u, f, a, e, n[v + 4], 20, -405537848), e = i(e, u, f, a, n[v + 9], 5, 568446438), a = i(a, e, u, f, n[v + 14], 9, -1019803690), f = i(f, a, e, u, n[v + 3], 14, -187363961), u = i(u, f, a, e, n[v + 8], 20, 1163531501), e = i(e, u, f, a, n[v + 13], 5, -1444681467), a = i(a, e, u, f, n[v + 2], 9, -51403784), f = i(f, a, e, u, n[v + 7], 14, 1735328473), e = h(e, u = i(u, f, a, e, n[v + 12], 20, -1926607734), f, a, n[v + 5], 4, -378558), a = h(a, e, u, f, n[v + 8], 11, -2022574463), f = h(f, a, e, u, n[v + 11], 16, 1839030562), u = h(u, f, a, e, n[v + 14], 23, -35309556), e = h(e, u, f, a, n[v + 1], 4, -1530992060), a = h(a, e, u, f, n[v + 4], 11, 1272893353), f = h(f, a, e, u, n[v + 7], 16, -155497632), u = h(u, f, a, e, n[v + 10], 23, -1094730640), e = h(e, u, f, a, n[v + 13], 4, 681279174), a = h(a, e, u, f, n[v], 11, -358537222), f = h(f, a, e, u, n[v + 3], 16, -722521979), u = h(u, f, a, e, n[v + 6], 23, 76029189), e = h(e, u, f, a, n[v + 9], 4, -640364487), a = h(a, e, u, f, n[v + 12], 11, -421815835), f = h(f, a, e, u, n[v + 15], 16, 530742520), e = l(e, u = h(u, f, a, e, n[v + 2], 23, -995338651), f, a, n[v], 6, -198630844), a = l(a, e, u, f, n[v + 7], 10, 1126891415), f = l(f, a, e, u, n[v + 14], 15, -1416354905), u = l(u, f, a, e, n[v + 5], 21, -57434055), e = l(e, u, f, a, n[v + 12], 6, 1700485571), a = l(a, e, u, f, n[v + 3], 10, -1894986606), f = l(f, a, e, u, n[v + 10], 15, -1051523), u = l(u, f, a, e, n[v + 1], 21, -2054922799), e = l(e, u, f, a, n[v + 8], 6, 1873313359), a = l(a, e, u, f, n[v + 15], 10, -30611744), f = l(f, a, e, u, n[v + 6], 15, -1560198380), u = l(u, f, a, e, n[v + 13], 21, 1309151649), e = l(e, u, f, a, n[v + 4], 6, -145523070), a = l(a, e, u, f, n[v + 11], 10, -1120210379), f = l(f, a, e, u, n[v + 2], 15, 718787259), u = l(u, f, a, e, n[v + 9], 21, -343485551), e = o(e, s), u = o(u, d), f = o(f, p), a = o(a, g);
       }
 
-      return [a, b, c, d];
+      return [e, u, f, a];
     }
-    /*
-     * Convert an array bytes to an array of little-endian words
-     * Characters >255 have their high-byte silently ignored.
-     */
 
+    function u(n) {
+      if (0 === n.length) return [];
 
-    function bytesToWords(input) {
-      if (input.length === 0) {
-        return [];
+      for (var r = 8 * n.length, e = new Uint32Array(t(r)), u = 0; u < r; u += 8) {
+        e[u >> 5] |= (255 & n[u / 8]) << u % 32;
       }
 
-      var length8 = input.length * 8;
-      var output = new Uint32Array(getOutputLength(length8));
-
-      for (var i = 0; i < length8; i += 8) {
-        output[i >> 5] |= (input[i / 8] & 0xff) << i % 32;
-      }
-
-      return output;
-    }
-    /*
-     * Add integers, wrapping at 2^32. This uses 16-bit operations internally
-     * to work around bugs in some JS interpreters.
-     */
-
-
-    function safeAdd(x, y) {
-      var lsw = (x & 0xffff) + (y & 0xffff);
-      var msw = (x >> 16) + (y >> 16) + (lsw >> 16);
-      return msw << 16 | lsw & 0xffff;
-    }
-    /*
-     * Bitwise rotate a 32-bit number to the left.
-     */
-
-
-    function bitRotateLeft(num, cnt) {
-      return num << cnt | num >>> 32 - cnt;
-    }
-    /*
-     * These functions implement the four basic operations the algorithm uses.
-     */
-
-
-    function md5cmn(q, a, b, x, s, t) {
-      return safeAdd(bitRotateLeft(safeAdd(safeAdd(a, q), safeAdd(x, t)), s), b);
+      return e;
     }
 
-    function md5ff(a, b, c, d, x, s, t) {
-      return md5cmn(b & c | ~b & d, a, b, x, s, t);
+    function o(n, r) {
+      var t = (65535 & n) + (65535 & r);
+      return (n >> 16) + (r >> 16) + (t >> 16) << 16 | 65535 & t;
     }
 
-    function md5gg(a, b, c, d, x, s, t) {
-      return md5cmn(b & d | c & ~d, a, b, x, s, t);
+    function f(n, r) {
+      return n << r | n >>> 32 - r;
     }
 
-    function md5hh(a, b, c, d, x, s, t) {
-      return md5cmn(b ^ c ^ d, a, b, x, s, t);
+    function a(n, r, t, e, u, a) {
+      return o(f(o(o(r, n), o(e, a)), u), t);
     }
 
-    function md5ii(a, b, c, d, x, s, t) {
-      return md5cmn(c ^ (b | ~d), a, b, x, s, t);
+    function c(n, r, t, e, u, o, f) {
+      return a(r & t | ~r & e, n, r, u, o, f);
     }
 
-    var _default = md5;
-    exports.default = _default;
+    function i(n, r, t, e, u, o, f) {
+      return a(r & e | t & ~e, n, r, u, o, f);
+    }
+
+    function h(n, r, t, e, u, o, f) {
+      return a(r ^ t ^ e, n, r, u, o, f);
+    }
+
+    function l(n, r, t, e, u, o, f) {
+      return a(t ^ (r | ~e), n, r, u, o, f);
+    }
+
+    Object.defineProperty(exports, "__esModule", {
+      value: !0
+    }), exports.default = void 0;
+    var v = n;
+    exports.default = v;
   }, {}],
-  "node_modules/uuid/dist/esm-browser/v3.js": [function (require, module, exports) {
+  "DhOM": [function (require, module, exports) {
     "use strict";
 
     Object.defineProperty(exports, "__esModule", {
-      value: true
-    });
-    exports.default = void 0;
+      value: !0
+    }), exports.default = void 0;
+    var e = t(require("./v35.js")),
+        r = t(require("./md5.js"));
 
-    var _v = _interopRequireDefault(require("./v35.js"));
-
-    var _md = _interopRequireDefault(require("./md5.js"));
-
-    function _interopRequireDefault(obj) {
-      return obj && obj.__esModule ? obj : {
-        default: obj
+    function t(e) {
+      return e && e.__esModule ? e : {
+        default: e
       };
     }
 
-    var v3 = (0, _v.default)('v3', 0x30, _md.default);
-    var _default = v3;
-    exports.default = _default;
+    var u = (0, e.default)("v3", 48, r.default),
+        d = u;
+    exports.default = d;
   }, {
-    "./v35.js": "node_modules/uuid/dist/esm-browser/v35.js",
-    "./md5.js": "node_modules/uuid/dist/esm-browser/md5.js"
+    "./v35.js": "y1M0",
+    "./md5.js": "hNcK"
   }],
-  "node_modules/uuid/dist/esm-browser/v4.js": [function (require, module, exports) {
+  "hVBO": [function (require, module, exports) {
     "use strict";
 
     Object.defineProperty(exports, "__esModule", {
-      value: true
-    });
-    exports.default = void 0;
+      value: !0
+    }), exports.default = void 0;
+    var e = t(require("./rng.js")),
+        r = t(require("./bytesToUuid.js"));
 
-    var _rng = _interopRequireDefault(require("./rng.js"));
-
-    var _bytesToUuid = _interopRequireDefault(require("./bytesToUuid.js"));
-
-    function _interopRequireDefault(obj) {
-      return obj && obj.__esModule ? obj : {
-        default: obj
+    function t(e) {
+      return e && e.__esModule ? e : {
+        default: e
       };
     }
 
-    function v4(options, buf, offset) {
-      if (typeof options === 'string') {
-        buf = options === 'binary' ? new Uint8Array(16) : null;
-        options = null;
-      }
+    function u(t, u, n) {
+      "string" == typeof t && (u = "binary" === t ? new Uint8Array(16) : null, t = null);
+      var a = (t = t || {}).random || (t.rng || e.default)();
 
-      options = options || {};
-
-      var rnds = options.random || (options.rng || _rng.default)(); // Per 4.4, set bits for version and `clock_seq_hi_and_reserved`
-
-
-      rnds[6] = rnds[6] & 0x0f | 0x40;
-      rnds[8] = rnds[8] & 0x3f | 0x80; // Copy bytes to buffer, if provided
-
-      if (buf) {
-        var start = offset || 0;
-
-        for (var i = 0; i < 16; ++i) {
-          buf[start + i] = rnds[i];
+      if (a[6] = 15 & a[6] | 64, a[8] = 63 & a[8] | 128, u) {
+        for (var o = n || 0, i = 0; i < 16; ++i) {
+          u[o + i] = a[i];
         }
 
-        return buf;
+        return u;
       }
 
-      return (0, _bytesToUuid.default)(rnds);
+      return (0, r.default)(a);
     }
 
-    var _default = v4;
-    exports.default = _default;
+    var n = u;
+    exports.default = n;
   }, {
-    "./rng.js": "node_modules/uuid/dist/esm-browser/rng.js",
-    "./bytesToUuid.js": "node_modules/uuid/dist/esm-browser/bytesToUuid.js"
+    "./rng.js": "cT7V",
+    "./bytesToUuid.js": "Qdkx"
   }],
-  "node_modules/uuid/dist/esm-browser/sha1.js": [function (require, module, exports) {
+  "PBRp": [function (require, module, exports) {
     "use strict";
 
-    Object.defineProperty(exports, "__esModule", {
-      value: true
-    });
-    exports.default = void 0; // Adapted from Chris Veness' SHA1 code at
-    // http://www.movable-type.co.uk/scripts/sha1.html
-
-    function f(s, x, y, z) {
-      switch (s) {
+    function r(r, e, t, a) {
+      switch (r) {
         case 0:
-          return x & y ^ ~x & z;
+          return e & t ^ ~e & a;
 
         case 1:
-          return x ^ y ^ z;
+          return e ^ t ^ a;
 
         case 2:
-          return x & y ^ x & z ^ y & z;
+          return e & t ^ e & a ^ t & a;
 
         case 3:
-          return x ^ y ^ z;
+          return e ^ t ^ a;
       }
     }
 
-    function ROTL(x, n) {
-      return x << n | x >>> 32 - n;
+    function e(r, e) {
+      return r << e | r >>> 32 - e;
     }
 
-    function sha1(bytes) {
-      var K = [0x5a827999, 0x6ed9eba1, 0x8f1bbcdc, 0xca62c1d6];
-      var H = [0x67452301, 0xefcdab89, 0x98badcfe, 0x10325476, 0xc3d2e1f0];
+    function t(t) {
+      var a = [1518500249, 1859775393, 2400959708, 3395469782],
+          n = [1732584193, 4023233417, 2562383102, 271733878, 3285377520];
 
-      if (typeof bytes === 'string') {
-        var msg = unescape(encodeURIComponent(bytes)); // UTF8 escape
+      if ("string" == typeof t) {
+        var o = unescape(encodeURIComponent(t));
+        t = [];
 
-        bytes = [];
-
-        for (var i = 0; i < msg.length; ++i) {
-          bytes.push(msg.charCodeAt(i));
+        for (var f = 0; f < o.length; ++f) {
+          t.push(o.charCodeAt(f));
         }
       }
 
-      bytes.push(0x80);
-      var l = bytes.length / 4 + 2;
-      var N = Math.ceil(l / 16);
-      var M = new Array(N);
+      t.push(128);
 
-      for (var _i = 0; _i < N; ++_i) {
-        var arr = new Uint32Array(16);
-
-        for (var j = 0; j < 16; ++j) {
-          arr[j] = bytes[_i * 64 + j * 4] << 24 | bytes[_i * 64 + j * 4 + 1] << 16 | bytes[_i * 64 + j * 4 + 2] << 8 | bytes[_i * 64 + j * 4 + 3];
+      for (var u = t.length / 4 + 2, s = Math.ceil(u / 16), c = new Array(s), v = 0; v < s; ++v) {
+        for (var h = new Uint32Array(16), i = 0; i < 16; ++i) {
+          h[i] = t[64 * v + 4 * i] << 24 | t[64 * v + 4 * i + 1] << 16 | t[64 * v + 4 * i + 2] << 8 | t[64 * v + 4 * i + 3];
         }
 
-        M[_i] = arr;
+        c[v] = h;
       }
 
-      M[N - 1][14] = (bytes.length - 1) * 8 / Math.pow(2, 32);
-      M[N - 1][14] = Math.floor(M[N - 1][14]);
-      M[N - 1][15] = (bytes.length - 1) * 8 & 0xffffffff;
+      c[s - 1][14] = 8 * (t.length - 1) / Math.pow(2, 32), c[s - 1][14] = Math.floor(c[s - 1][14]), c[s - 1][15] = 8 * (t.length - 1) & 4294967295;
 
-      for (var _i2 = 0; _i2 < N; ++_i2) {
-        var W = new Uint32Array(80);
-
-        for (var t = 0; t < 16; ++t) {
-          W[t] = M[_i2][t];
+      for (var l = 0; l < s; ++l) {
+        for (var p = new Uint32Array(80), d = 0; d < 16; ++d) {
+          p[d] = c[l][d];
         }
 
-        for (var _t = 16; _t < 80; ++_t) {
-          W[_t] = ROTL(W[_t - 3] ^ W[_t - 8] ^ W[_t - 14] ^ W[_t - 16], 1);
+        for (var g = 16; g < 80; ++g) {
+          p[g] = e(p[g - 3] ^ p[g - 8] ^ p[g - 14] ^ p[g - 16], 1);
         }
 
-        var a = H[0];
-        var b = H[1];
-        var c = H[2];
-        var d = H[3];
-        var e = H[4];
+        for (var w = n[0], y = n[1], M = n[2], A = n[3], x = n[4], U = 0; U < 80; ++U) {
+          var C = Math.floor(U / 20),
+              _ = e(w, 5) + r(C, y, M, A) + x + a[C] + p[U] >>> 0;
 
-        for (var _t2 = 0; _t2 < 80; ++_t2) {
-          var s = Math.floor(_t2 / 20);
-          var T = ROTL(a, 5) + f(s, b, c, d) + e + K[s] + W[_t2] >>> 0;
-          e = d;
-          d = c;
-          c = ROTL(b, 30) >>> 0;
-          b = a;
-          a = T;
+          x = A, A = M, M = e(y, 30) >>> 0, y = w, w = _;
         }
 
-        H[0] = H[0] + a >>> 0;
-        H[1] = H[1] + b >>> 0;
-        H[2] = H[2] + c >>> 0;
-        H[3] = H[3] + d >>> 0;
-        H[4] = H[4] + e >>> 0;
+        n[0] = n[0] + w >>> 0, n[1] = n[1] + y >>> 0, n[2] = n[2] + M >>> 0, n[3] = n[3] + A >>> 0, n[4] = n[4] + x >>> 0;
       }
 
-      return [H[0] >> 24 & 0xff, H[0] >> 16 & 0xff, H[0] >> 8 & 0xff, H[0] & 0xff, H[1] >> 24 & 0xff, H[1] >> 16 & 0xff, H[1] >> 8 & 0xff, H[1] & 0xff, H[2] >> 24 & 0xff, H[2] >> 16 & 0xff, H[2] >> 8 & 0xff, H[2] & 0xff, H[3] >> 24 & 0xff, H[3] >> 16 & 0xff, H[3] >> 8 & 0xff, H[3] & 0xff, H[4] >> 24 & 0xff, H[4] >> 16 & 0xff, H[4] >> 8 & 0xff, H[4] & 0xff];
+      return [n[0] >> 24 & 255, n[0] >> 16 & 255, n[0] >> 8 & 255, 255 & n[0], n[1] >> 24 & 255, n[1] >> 16 & 255, n[1] >> 8 & 255, 255 & n[1], n[2] >> 24 & 255, n[2] >> 16 & 255, n[2] >> 8 & 255, 255 & n[2], n[3] >> 24 & 255, n[3] >> 16 & 255, n[3] >> 8 & 255, 255 & n[3], n[4] >> 24 & 255, n[4] >> 16 & 255, n[4] >> 8 & 255, 255 & n[4]];
     }
 
-    var _default = sha1;
-    exports.default = _default;
+    Object.defineProperty(exports, "__esModule", {
+      value: !0
+    }), exports.default = void 0;
+    var a = t;
+    exports.default = a;
   }, {}],
-  "node_modules/uuid/dist/esm-browser/v5.js": [function (require, module, exports) {
+  "UVmZ": [function (require, module, exports) {
     "use strict";
 
     Object.defineProperty(exports, "__esModule", {
-      value: true
-    });
-    exports.default = void 0;
+      value: !0
+    }), exports.default = void 0;
+    var e = t(require("./v35.js")),
+        r = t(require("./sha1.js"));
 
-    var _v = _interopRequireDefault(require("./v35.js"));
-
-    var _sha = _interopRequireDefault(require("./sha1.js"));
-
-    function _interopRequireDefault(obj) {
-      return obj && obj.__esModule ? obj : {
-        default: obj
+    function t(e) {
+      return e && e.__esModule ? e : {
+        default: e
       };
     }
 
-    var v5 = (0, _v.default)('v5', 0x50, _sha.default);
-    var _default = v5;
-    exports.default = _default;
+    var u = (0, e.default)("v5", 80, r.default),
+        s = u;
+    exports.default = s;
   }, {
-    "./v35.js": "node_modules/uuid/dist/esm-browser/v35.js",
-    "./sha1.js": "node_modules/uuid/dist/esm-browser/sha1.js"
+    "./v35.js": "y1M0",
+    "./sha1.js": "PBRp"
   }],
-  "node_modules/uuid/dist/esm-browser/index.js": [function (require, module, exports) {
+  "Lz3t": [function (require, module, exports) {
     "use strict";
 
     Object.defineProperty(exports, "__esModule", {
-      value: true
-    });
-    Object.defineProperty(exports, "v1", {
-      enumerable: true,
+      value: !0
+    }), Object.defineProperty(exports, "v1", {
+      enumerable: !0,
       get: function get() {
-        return _v.default;
+        return e.default;
+      }
+    }), Object.defineProperty(exports, "v3", {
+      enumerable: !0,
+      get: function get() {
+        return r.default;
+      }
+    }), Object.defineProperty(exports, "v4", {
+      enumerable: !0,
+      get: function get() {
+        return t.default;
+      }
+    }), Object.defineProperty(exports, "v5", {
+      enumerable: !0,
+      get: function get() {
+        return u.default;
       }
     });
-    Object.defineProperty(exports, "v3", {
-      enumerable: true,
-      get: function get() {
-        return _v2.default;
-      }
-    });
-    Object.defineProperty(exports, "v4", {
-      enumerable: true,
-      get: function get() {
-        return _v3.default;
-      }
-    });
-    Object.defineProperty(exports, "v5", {
-      enumerable: true,
-      get: function get() {
-        return _v4.default;
-      }
-    });
+    var e = n(require("./v1.js")),
+        r = n(require("./v3.js")),
+        t = n(require("./v4.js")),
+        u = n(require("./v5.js"));
 
-    var _v = _interopRequireDefault(require("./v1.js"));
-
-    var _v2 = _interopRequireDefault(require("./v3.js"));
-
-    var _v3 = _interopRequireDefault(require("./v4.js"));
-
-    var _v4 = _interopRequireDefault(require("./v5.js"));
-
-    function _interopRequireDefault(obj) {
-      return obj && obj.__esModule ? obj : {
-        default: obj
+    function n(e) {
+      return e && e.__esModule ? e : {
+        default: e
       };
     }
   }, {
-    "./v1.js": "node_modules/uuid/dist/esm-browser/v1.js",
-    "./v3.js": "node_modules/uuid/dist/esm-browser/v3.js",
-    "./v4.js": "node_modules/uuid/dist/esm-browser/v4.js",
-    "./v5.js": "node_modules/uuid/dist/esm-browser/v5.js"
+    "./v1.js": "nQZ2",
+    "./v3.js": "DhOM",
+    "./v4.js": "hVBO",
+    "./v5.js": "UVmZ"
   }],
-  "src/script/modules/expenseManager.js": [function (require, module, exports) {
-    function _createForOfIteratorHelper(o, allowArrayLike) {
-      var it;
+  "m33K": [function (require, module, exports) {
+    function n(_n, e) {
+      var r;
 
-      if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) {
-        if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") {
-          if (it) o = it;
-          var i = 0;
+      if ("undefined" == typeof Symbol || null == _n[Symbol.iterator]) {
+        if (Array.isArray(_n) || (r = t(_n)) || e && _n && "number" == typeof _n.length) {
+          r && (_n = r);
 
-          var F = function F() {};
+          var a = 0,
+              i = function i() {};
 
           return {
-            s: F,
+            s: i,
             n: function n() {
-              if (i >= o.length) return {
-                done: true
-              };
-              return {
-                done: false,
-                value: o[i++]
+              return a >= _n.length ? {
+                done: !0
+              } : {
+                done: !1,
+                value: _n[a++]
               };
             },
-            e: function e(_e) {
-              throw _e;
+            e: function e(n) {
+              throw n;
             },
-            f: F
+            f: i
           };
         }
 
         throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
       }
 
-      var normalCompletion = true,
-          didErr = false,
-          err;
+      var o,
+          s = !0,
+          c = !1;
       return {
         s: function s() {
-          it = o[Symbol.iterator]();
+          r = _n[Symbol.iterator]();
         },
         n: function n() {
-          var step = it.next();
-          normalCompletion = step.done;
-          return step;
+          var n = r.next();
+          return s = n.done, n;
         },
-        e: function e(_e2) {
-          didErr = true;
-          err = _e2;
+        e: function e(n) {
+          c = !0, o = n;
         },
         f: function f() {
           try {
-            if (!normalCompletion && it.return != null) it.return();
+            s || null == r.return || r.return();
           } finally {
-            if (didErr) throw err;
+            if (c) throw o;
           }
         }
       };
     }
 
-    function _unsupportedIterableToArray(o, minLen) {
-      if (!o) return;
-      if (typeof o === "string") return _arrayLikeToArray(o, minLen);
-      var n = Object.prototype.toString.call(o).slice(8, -1);
-      if (n === "Object" && o.constructor) n = o.constructor.name;
-      if (n === "Map" || n === "Set") return Array.from(o);
-      if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
-    }
-
-    function _arrayLikeToArray(arr, len) {
-      if (len == null || len > arr.length) len = arr.length;
-
-      for (var i = 0, arr2 = new Array(len); i < len; i++) {
-        arr2[i] = arr[i];
-      }
-
-      return arr2;
-    }
-
-    function _classCallCheck(instance, Constructor) {
-      if (!(instance instanceof Constructor)) {
-        throw new TypeError("Cannot call a class as a function");
+    function t(n, t) {
+      if (n) {
+        if ("string" == typeof n) return e(n, t);
+        var r = Object.prototype.toString.call(n).slice(8, -1);
+        return "Object" === r && n.constructor && (r = n.constructor.name), "Map" === r || "Set" === r ? Array.from(n) : "Arguments" === r || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(r) ? e(n, t) : void 0;
       }
     }
 
-    function _defineProperties(target, props) {
-      for (var i = 0; i < props.length; i++) {
-        var descriptor = props[i];
-        descriptor.enumerable = descriptor.enumerable || false;
-        descriptor.configurable = true;
-        if ("value" in descriptor) descriptor.writable = true;
-        Object.defineProperty(target, descriptor.key, descriptor);
+    function e(n, t) {
+      (null == t || t > n.length) && (t = n.length);
+
+      for (var e = 0, r = new Array(t); e < t; e++) {
+        r[e] = n[e];
+      }
+
+      return r;
+    }
+
+    function r(n, t) {
+      if (!(n instanceof t)) throw new TypeError("Cannot call a class as a function");
+    }
+
+    function a(n, t) {
+      for (var e = 0; e < t.length; e++) {
+        var r = t[e];
+        r.enumerable = r.enumerable || !1, r.configurable = !0, "value" in r && (r.writable = !0), Object.defineProperty(n, r.key, r);
       }
     }
 
-    function _createClass(Constructor, protoProps, staticProps) {
-      if (protoProps) _defineProperties(Constructor.prototype, protoProps);
-      if (staticProps) _defineProperties(Constructor, staticProps);
-      return Constructor;
+    function i(n, t, e) {
+      return t && a(n.prototype, t), e && a(n, e), n;
     }
 
-    var Transaction = require('./transaction');
-
-    var ExpenseType = require('./expenseType');
-
-    var _require = require('uuid'),
-        uuidv4 = _require.v4;
-
-    var ExpenseManager = /*#__PURE__*/function () {
-      function ExpenseManager(mode) {
-        _classCallCheck(this, ExpenseManager);
-
-        if ('test' == mode) {
-          this.testMode = true;
-        } else {
-          this.testMode = false;
-        }
-
-        this.transactionList = [];
-        this.id = 0;
+    var o = require("./transaction"),
+        s = require("./expenseType"),
+        c = require("uuid"),
+        u = c.v4,
+        l = function () {
+      function t(n) {
+        r(this, t), this.testMode = "test" == n, this.transactionList = [], this.id = 0;
       }
 
-      _createClass(ExpenseManager, [{
+      return i(t, [{
         key: "addTransaction",
-        value: function addTransaction(amount, message) {
-          if (isNaN(amount)) {
-            throw "transaction amount not a number ".concat(amount);
-          }
-
-          if (amount == 0) {
-            throw "transaction amount 0 ".concat(amount);
-          }
-
-          var type = amount > 0 ? ExpenseType.POSITIVE_EXPENSE : ExpenseType.NEGATIVE_EXPENSE;
-          amount = Math.abs(amount);
-          var transaction = new Transaction(amount, message, type, this.testMode ? '1234' : uuidv4());
-          this.transactionList.push(transaction);
+        value: function value(n, t, e) {
+          if (isNaN(n)) throw "transaction amount not a number ".concat(n);
+          if (0 == n) throw "transaction amount 0 ".concat(n);
+          var r = n > 0 ? s.POSITIVE_EXPENSE : s.NEGATIVE_EXPENSE;
+          n = Math.abs(n);
+          var a = new o(n, t, r, this.testMode ? "1234" : u(), e);
+          this.transactionList.push(a);
         }
       }, {
         key: "getTransactions",
-        value: function getTransactions() {
+        value: function value() {
           return this.transactionList;
         }
       }, {
         key: "toHTML",
-        value: function toHTML() {
-          var innerH = this.transactionList.filter(function (t) {
-            return !t.deleted;
-          }).map(function (t) {
-            return t.toHTML();
-          }).reduce(function (a, b) {
-            return a + b;
+        value: function value() {
+          var n = this.transactionList.filter(function (n) {
+            return !n.deleted;
+          }).map(function (n) {
+            return n.toHTML();
+          }).reduce(function (n, t) {
+            return n + t;
           }, "");
-          return "<table class=\"transactionTable\">".concat(innerH, "</table>");
+          return '<table class="transactionTable">'.concat(n, "</table>");
         }
       }, {
         key: "completeAccountHTML",
-        value: function completeAccountHTML() {
-          var currentBallance = this.getBallance();
-          return "<div class=\"ballanceContainer\">\n                    <div class=\"ballanceMessage\">\n                        your current ballance\n                    </div>\n                    <div class=\"ballance\">\n                        <span class=\"money\"><h3>".concat(this.getBallance(), "</h3></span>\n                    </div>\n                    <div class=\"incomeVsExpenseContainer\">\n                        <div class=\"ieContainer\">\n                            <span class=\"money possitive\">").concat(this.getPossitiveBallance(), "</span>\n                        </div>\n                        <div class=\"ieContainer\">\n                            <span class=\"money negative\">").concat(this.getNegativeBallance(), "</span>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"transactionContainer\">\n                    <div class=\"transactionMainMessage\">\n                        <h5>your transactions</h5>\n                    </div>\n                    <div class=\"transactionList\">\n                        ").concat(this.toHTML(), "\n                    </div>\n                </div>");
+        value: function value() {
+          this.getBallance();
+          return '<div class="ballanceContainer">\n                    <div class="ballanceMessage">\n                        your current ballance\n                    </div>\n                    <div class="ballance">\n                        <span class="money"><h3>'.concat(this.getBallance(), '</h3></span>\n                    </div>\n                    <div class="incomeVsExpenseContainer">\n                        <div class="ieContainer">\n                            <span class="money possitive">').concat(this.getPossitiveBallance(), '</span>\n                        </div>\n                        <div class="ieContainer">\n                            <span class="money negative">').concat(this.getNegativeBallance(), '</span>\n                        </div>\n                    </div>\n                </div>\n                <div class="transactionContainer">\n                    <div class="transactionMainMessage">\n                        <h5>your transactions</h5>\n                    </div>\n                    <div class="transactionList">\n                        ').concat(this.toHTML(), "\n                    </div>\n                </div>");
         }
       }, {
         key: "getBallance",
-        value: function getBallance() {
-          var totalBallance = this.transactionList.filter(function (t) {
-            return !t.deleted;
-          }).map(function (a) {
-            if (a.type == ExpenseType.NEGATIVE_EXPENSE) {
-              return -a.amount;
-            } else return a.amount;
-          }).reduce(function (a, b) {
-            return a + b;
+        value: function value() {
+          return this.transactionList.filter(function (n) {
+            return !n.deleted;
+          }).map(function (n) {
+            return n.type == s.NEGATIVE_EXPENSE ? -n.amount : n.amount;
+          }).reduce(function (n, t) {
+            return n + t;
           }, 0);
-          return totalBallance;
         }
       }, {
         key: "getPossitiveBallance",
-        value: function getPossitiveBallance() {
-          var totalBallance = this.transactionList.filter(function (t) {
-            return !t.deleted;
-          }).filter(function (t) {
-            return t.type == ExpenseType.POSITIVE_EXPENSE;
-          }).map(function (a) {
-            return a.amount;
-          }).reduce(function (a, b) {
-            return a + b;
+        value: function value() {
+          return this.transactionList.filter(function (n) {
+            return !n.deleted;
+          }).filter(function (n) {
+            return n.type == s.POSITIVE_EXPENSE;
+          }).map(function (n) {
+            return n.amount;
+          }).reduce(function (n, t) {
+            return n + t;
           }, 0);
-          return totalBallance;
         }
       }, {
         key: "getNegativeBallance",
-        value: function getNegativeBallance() {
-          var totalBallance = this.transactionList.filter(function (t) {
-            return !t.deleted;
-          }).filter(function (t) {
-            return t.type == ExpenseType.NEGATIVE_EXPENSE;
-          }).map(function (a) {
-            return a.amount;
-          }).reduce(function (a, b) {
-            return a + b;
+        value: function value() {
+          return this.transactionList.filter(function (n) {
+            return !n.deleted;
+          }).filter(function (n) {
+            return n.type == s.NEGATIVE_EXPENSE;
+          }).map(function (n) {
+            return n.amount;
+          }).reduce(function (n, t) {
+            return n + t;
           }, 0);
-          return totalBallance;
         }
       }, {
         key: "serialize",
-        value: function serialize() {
+        value: function value() {
           return JSON.stringify(this.transactionList);
         }
       }, {
         key: "deSerialize",
-        value: function deSerialize(seiralData) {
-          if (seiralData == null || seiralData == undefined || seiralData == "") {
-            return;
-          }
+        value: function value(t) {
+          if (null != t && null != t && "" != t) {
+            var e,
+                r = n(JSON.parse(t));
 
-          var data = JSON.parse(seiralData);
-
-          var _iterator = _createForOfIteratorHelper(data),
-              _step;
-
-          try {
-            for (_iterator.s(); !(_step = _iterator.n()).done;) {
-              var _step$value = _step.value,
-                  amount = _step$value.amount,
-                  type = _step$value.type,
-                  message = _step$value.message,
-                  id = _step$value.id,
-                  createDate = _step$value.createDate,
-                  deleted = _step$value.deleted;
-              var transactionType = type == 1 ? ExpenseType.POSITIVE_EXPENSE : ExpenseType.NEGATIVE_EXPENSE;
-              var transaction = new Transaction(amount, message, transactionType, id, createDate, deleted);
-              this.transactionList.push(transaction);
+            try {
+              for (r.s(); !(e = r.n()).done;) {
+                var a = e.value,
+                    i = a.amount,
+                    c = a.type,
+                    u = a.message,
+                    l = a.id,
+                    f = a.createDate,
+                    d = a.deleted,
+                    v = 1 == c ? s.POSITIVE_EXPENSE : s.NEGATIVE_EXPENSE,
+                    y = new o(i, u, v, l, f, d);
+                this.transactionList.push(y);
+              }
+            } catch (h) {
+              r.e(h);
+            } finally {
+              r.f();
             }
-          } catch (err) {
-            _iterator.e(err);
-          } finally {
-            _iterator.f();
           }
         }
       }, {
         key: "deleteTransaction",
-        value: function deleteTransaction(transactionId) {
+        value: function value(n) {
           this.transactionList.find(function (t) {
-            return t.id == transactionId;
-          }).deleted = true;
+            return t.id == n;
+          }).deleted = !0;
         }
-      }]);
-
-      return ExpenseManager;
+      }]), t;
     }();
 
-    module.exports = ExpenseManager;
+    module.exports = l;
   }, {
-    "./transaction": "src/script/modules/transaction.js",
-    "./expenseType": "src/script/modules/expenseType.js",
-    "uuid": "node_modules/uuid/dist/esm-browser/index.js"
+    "./transaction": "ap6O",
+    "./expenseType": "jKfF",
+    "uuid": "Lz3t"
   }],
-  "script.js": [function (require, module, exports) {
-    console.log("hello expense manager"); //requires
+  "mpVp": [function (require, module, exports) {
+    console.log("hello expense manager");
 
-    var ExpenseManager = require('./modules/expenseManager'); //DOM elements 
-
-
-    var elAccountInfo;
-    var elTxnType;
-    var elTxnDescription;
-    var elTxnAmount;
-    var elTxnSubmit;
-    var elNotification;
-    var elNotificationTitle;
-    var elNotificationMessage;
-    var elNotificationClose; //variables
-
-    var expenseManager; //const
-
-    var EXPENSE_MANAGER_KEY = "EXPENSE_MANAGER_KEY";
-    var DEFAULT_NOTIFY_TIMEOUT = 10000; //init
-
-    var init = function init() {
-      initDomRefference();
-      setupEventListeners();
-      initExpenseManager();
-      updateDisplay();
-      updateEventListeners(); // callNotify('loaded','please sart', 10000);
-    }; //initDomRefference
-
-
-    var initDomRefference = function initDomRefference() {
-      elAccountInfo = document.querySelector('.accountInfoContainer');
-      elTxnType = document.querySelector('#transactionTypeInput');
-      elTxnDescription = document.querySelector('#transactionDescriptionInput');
-      elTxnAmount = document.querySelector('#transactionAmountInput');
-      elTxnSubmit = document.querySelector('#transactionSubmit');
-      elNotification = document.querySelector('.notification');
-      elNotificationTitle = document.querySelector('.notificationTitle');
-      elNotificationMessage = document.querySelector('.notificationMesasge');
-      elNotificationClose = document.querySelector('.closeNotification');
-    }; //setupEventListeners
-
-
-    var setupEventListeners = function setupEventListeners() {
-      elTxnSubmit.addEventListener('click', addTransaction);
-    };
-
-    var updateEventListeners = function updateEventListeners() {
-      document.querySelectorAll('.delete').forEach(function (el) {
-        return el.addEventListener('click', deleteTransaction);
+    var e,
+        t,
+        n,
+        o,
+        c,
+        i,
+        r,
+        a,
+        u,
+        l,
+        s = require("./modules/expenseManager"),
+        d = "EXPENSE_MANAGER_KEY",
+        f = 1e4,
+        m = function m() {
+      v(), S(), h(), E(), y();
+    },
+        v = function v() {
+      e = document.querySelector(".accountInfoContainer"), t = document.querySelector("#transactionTypeInput"), n = document.querySelector("#transactionDescriptionInput"), o = document.querySelector("#transactionAmountInput"), c = document.querySelector("#transactionSubmit"), i = document.querySelector(".notification"), r = document.querySelector(".notificationTitle"), a = document.querySelector(".notificationMesasge"), u = document.querySelector(".closeNotification");
+    },
+        S = function S() {
+      c.addEventListener("click", q);
+    },
+        y = function y() {
+      document.querySelectorAll(".delete").forEach(function (e) {
+        return e.addEventListener("click", T);
       });
-    }; //init expenseManager
+    },
+        h = function h() {
+      var e = localStorage.getItem(d);
+      (l = new s()).deSerialize(e);
+    },
+        q = function q() {
+      var e = t.value,
+          c = o.value,
+          i = n.value;
+      if (c < 0) I("Uh oh!", "Expense/Income amount can not be -ve", f);else {
+        1 != e && (c *= -1);
 
+        try {
+          l.addTransaction(c, i);
+        } catch (r) {
+          I("Uh oh!", r, f);
+        }
 
-    var initExpenseManager = function initExpenseManager() {
-      var storageData = localStorage.getItem(EXPENSE_MANAGER_KEY);
-      expenseManager = new ExpenseManager();
-      expenseManager.deSerialize(storageData);
-    }; //event listenrers
-
-
-    var addTransaction = function addTransaction() {
-      var transactionType = elTxnType.value;
-      var transactionAmount = elTxnAmount.value;
-      var transactionDescription = elTxnDescription.value;
-
-      if (transactionAmount < 0) {
-        callNotify('Uh oh!', 'Expense/Income amount can not be -ve', DEFAULT_NOTIFY_TIMEOUT);
-        return;
+        setTimeout(g, 1), E(), y(), L();
       }
-
-      if (transactionType != 1) {
-        transactionAmount *= -1;
-      } // transactionType
-
-
-      try {
-        expenseManager.addTransaction(transactionAmount, transactionDescription);
-      } catch (err) {
-        callNotify('Uh oh!', err, DEFAULT_NOTIFY_TIMEOUT);
-      }
-
-      setTimeout(updateLocalStorage, 1);
-      updateDisplay();
-      updateEventListeners();
-      cleanTransactionCreatorInputs();
-    };
-
-    var deleteTransaction = function deleteTransaction(event) {
-      var transactionId = event.target.getAttribute('idValue');
-      expenseManager.deleteTransaction(transactionId);
-      updateDisplay();
-      updateEventListeners();
-      updateLocalStorage();
-    };
-
-    var updateLocalStorage = function updateLocalStorage() {
-      localStorage.setItem(EXPENSE_MANAGER_KEY, expenseManager.serialize());
-    }; //dom display/paint
-
-
-    var updateDisplay = function updateDisplay() {
-      elAccountInfo.innerHTML = expenseManager.completeAccountHTML();
-    };
-
-    var cleanTransactionCreatorInputs = function cleanTransactionCreatorInputs() {
-      elTxnDescription.value = '';
-      elTxnAmount.value = 0;
-    }; // notification
-
-
-    var notify = function notify(title, message) {
-      var timeout = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 5000;
-      elNotification.classList.remove('hide');
-      elNotificationTitle.innerHTML = title;
-      elNotificationMessage.innerHTML = message;
-      var key = setTimeout(function () {
-        elNotification.classList.add('hide');
-      }, timeout);
-      return function closeNotify() {
-        elNotification.classList.add('hide');
-        clearTimeout(key);
+    },
+        T = function T(e) {
+      var t = e.target.getAttribute("idValue");
+      l.deleteTransaction(t), E(), y(), g();
+    },
+        g = function g() {
+      localStorage.setItem(d, l.serialize());
+    },
+        E = function E() {
+      e.innerHTML = l.completeAccountHTML();
+    },
+        L = function L() {
+      n.value = "", o.value = 0;
+    },
+        p = function p(e, t) {
+      var n = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : 5e3;
+      i.classList.remove("hide"), r.innerHTML = e, a.innerHTML = t;
+      var o = setTimeout(function () {
+        i.classList.add("hide");
+      }, n);
+      return function () {
+        i.classList.add("hide"), clearTimeout(o);
       };
+    },
+        I = function I(e, t, n) {
+      closeNotify = p(e, t, n), u.addEventListener("click", closeNotify);
     };
 
-    var callNotify = function callNotify(title, message, timeout) {
-      closeNotify = notify(title, message, timeout);
-      elNotificationClose.addEventListener('click', closeNotify);
-    }; // init call
-
-
-    window.onload = init;
+    window.onload = m;
   }, {
-    "./modules/expenseManager": "src/script/modules/expenseManager.js"
-  }],
-  "../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js": [function (require, module, exports) {
-    var global = arguments[3];
-    var OVERLAY_ID = '__parcel__error__overlay__';
-    var OldModule = module.bundle.Module;
-
-    function Module(moduleName) {
-      OldModule.call(this, moduleName);
-      this.hot = {
-        data: module.bundle.hotData,
-        _acceptCallbacks: [],
-        _disposeCallbacks: [],
-        accept: function accept(fn) {
-          this._acceptCallbacks.push(fn || function () {});
-        },
-        dispose: function dispose(fn) {
-          this._disposeCallbacks.push(fn);
-        }
-      };
-      module.bundle.hotData = null;
-    }
-
-    module.bundle.Module = Module;
-    var checkedAssets, assetsToAccept;
-    var parent = module.bundle.parent;
-
-    if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
-      var hostname = "" || location.hostname;
-      var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-      var ws = new WebSocket(protocol + '://' + hostname + ':' + "50819" + '/');
-
-      ws.onmessage = function (event) {
-        checkedAssets = {};
-        assetsToAccept = [];
-        var data = JSON.parse(event.data);
-
-        if (data.type === 'update') {
-          var handled = false;
-          data.assets.forEach(function (asset) {
-            if (!asset.isNew) {
-              var didAccept = hmrAcceptCheck(global.parcelRequire, asset.id);
-
-              if (didAccept) {
-                handled = true;
-              }
-            }
-          }); // Enable HMR for CSS by default.
-
-          handled = handled || data.assets.every(function (asset) {
-            return asset.type === 'css' && asset.generated.js;
-          });
-
-          if (handled) {
-            console.clear();
-            data.assets.forEach(function (asset) {
-              hmrApply(global.parcelRequire, asset);
-            });
-            assetsToAccept.forEach(function (v) {
-              hmrAcceptRun(v[0], v[1]);
-            });
-          } else if (location.reload) {
-            // `location` global exists in a web worker context but lacks `.reload()` function.
-            location.reload();
-          }
-        }
-
-        if (data.type === 'reload') {
-          ws.close();
-
-          ws.onclose = function () {
-            location.reload();
-          };
-        }
-
-        if (data.type === 'error-resolved') {
-          console.log('[parcel] ✨ Error resolved');
-          removeErrorOverlay();
-        }
-
-        if (data.type === 'error') {
-          console.error('[parcel] 🚨  ' + data.error.message + '\n' + data.error.stack);
-          removeErrorOverlay();
-          var overlay = createErrorOverlay(data);
-          document.body.appendChild(overlay);
-        }
-      };
-    }
-
-    function removeErrorOverlay() {
-      var overlay = document.getElementById(OVERLAY_ID);
-
-      if (overlay) {
-        overlay.remove();
-      }
-    }
-
-    function createErrorOverlay(data) {
-      var overlay = document.createElement('div');
-      overlay.id = OVERLAY_ID; // html encode message and stack trace
-
-      var message = document.createElement('div');
-      var stackTrace = document.createElement('pre');
-      message.innerText = data.error.message;
-      stackTrace.innerText = data.error.stack;
-      overlay.innerHTML = '<div style="background: black; font-size: 16px; color: white; position: fixed; height: 100%; width: 100%; top: 0px; left: 0px; padding: 30px; opacity: 0.85; font-family: Menlo, Consolas, monospace; z-index: 9999;">' + '<span style="background: red; padding: 2px 4px; border-radius: 2px;">ERROR</span>' + '<span style="top: 2px; margin-left: 5px; position: relative;">🚨</span>' + '<div style="font-size: 18px; font-weight: bold; margin-top: 20px;">' + message.innerHTML + '</div>' + '<pre>' + stackTrace.innerHTML + '</pre>' + '</div>';
-      return overlay;
-    }
-
-    function getParents(bundle, id) {
-      var modules = bundle.modules;
-
-      if (!modules) {
-        return [];
-      }
-
-      var parents = [];
-      var k, d, dep;
-
-      for (k in modules) {
-        for (d in modules[k][1]) {
-          dep = modules[k][1][d];
-
-          if (dep === id || Array.isArray(dep) && dep[dep.length - 1] === id) {
-            parents.push(k);
-          }
-        }
-      }
-
-      if (bundle.parent) {
-        parents = parents.concat(getParents(bundle.parent, id));
-      }
-
-      return parents;
-    }
-
-    function hmrApply(bundle, asset) {
-      var modules = bundle.modules;
-
-      if (!modules) {
-        return;
-      }
-
-      if (modules[asset.id] || !bundle.parent) {
-        var fn = new Function('require', 'module', 'exports', asset.generated.js);
-        asset.isNew = !modules[asset.id];
-        modules[asset.id] = [fn, asset.deps];
-      } else if (bundle.parent) {
-        hmrApply(bundle.parent, asset);
-      }
-    }
-
-    function hmrAcceptCheck(bundle, id) {
-      var modules = bundle.modules;
-
-      if (!modules) {
-        return;
-      }
-
-      if (!modules[id] && bundle.parent) {
-        return hmrAcceptCheck(bundle.parent, id);
-      }
-
-      if (checkedAssets[id]) {
-        return;
-      }
-
-      checkedAssets[id] = true;
-      var cached = bundle.cache[id];
-      assetsToAccept.push([bundle, id]);
-
-      if (cached && cached.hot && cached.hot._acceptCallbacks.length) {
-        return true;
-      }
-
-      return getParents(global.parcelRequire, id).some(function (id) {
-        return hmrAcceptCheck(global.parcelRequire, id);
-      });
-    }
-
-    function hmrAcceptRun(bundle, id) {
-      var cached = bundle.cache[id];
-      bundle.hotData = {};
-
-      if (cached) {
-        cached.hot.data = bundle.hotData;
-      }
-
-      if (cached && cached.hot && cached.hot._disposeCallbacks.length) {
-        cached.hot._disposeCallbacks.forEach(function (cb) {
-          cb(bundle.hotData);
-        });
-      }
-
-      delete bundle.cache[id];
-      bundle(id);
-      cached = bundle.cache[id];
-
-      if (cached && cached.hot && cached.hot._acceptCallbacks.length) {
-        cached.hot._acceptCallbacks.forEach(function (cb) {
-          cb();
-        });
-
-        return true;
-      }
-    }
-  }, {}]
-}, {}, ["../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js", "script.js"], null);
+    "./modules/expenseManager": "m33K"
+  }]
+}, {}, ["mpVp"], null);
 },{}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -1661,7 +994,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54092" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59277" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

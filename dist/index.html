@@ -1,92 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <!-- <script src="./src/script/script.js"></script> -->
-    <script src="/script.834ed2f9.js"></script>
-    <link rel="stylesheet" href="/style.e308ff8e.css">
-<script src="/style.e308ff8e.js"></script></head>
-<body>
-    <div class="notification hide">
-        <div class="notificationBody">
-        <div class="closeNotification"></div>
-        <div class="notificationTitle">
-            error!
-        </div>
-        <div class="notificationMesasge">
-            its an error
-        </div>
-    </div>
-    </div>
-    <div class="mainContainer">
-        <div class="banner">
-            <div class="bannerMessage">
-                <h3>EXPENSE TRACKER</h3>
-            </div>
-            <div class="bannerSubMessage">
-                track your expenses!
-            </div>
-        </div>
-        <div class="subContainer">
-            <div class="transactionCreator">
-                <div class="transactionType">
-                    <select name="transactionType" id="transactionTypeInput" class="transactionTypeSelect">
-                        <option value="1" selected="">income</option>
-                        <option value="2">expense</option>
-                    </select>
-                </div> 
-                <div class="transactionDescription">
-                    <input type="text" class="transactionNumber" id="transactionDescriptionInput">
-                    <h5>Transaction Description</h5>
-                </div>
-                <div class="transactionValue">
-                    <input type="number" class="transactionNumber" id="transactionAmountInput" min="1">
-                    <h5>Transaction Amount</h5>
-                </div>
-                <button class="addTransaction" id="transactionSubmit">create transaction</button>
-            </div>
-        <div class="accountInfoContainer">
-            <div class="ballanceContainer">
-                <div class="ballanceMessage">
-                    your current ballance
-                </div>
-                <div class="ballance">
-                    <span class="money"><h3>100</h3></span>
-                </div>
-                <div class="incomeVsExpenseContainer">
-                    <div class="ieContainer">
-                        <span class="money positive">100</span>
-                    </div>
-                    <div class="ieContainer">
-                        <span class="money negative">20</span>
-                    </div>
-                </div>
-            </div>
-            <div class="transactionContainer">
-                <div class="transactionMainMessage">
-                    <h5>your transactions</h5>
-                </div>
-                <div class="transactionList">
-                    <table class="transactionTable">
-                        <tr class="transactionRow">
-                            <td class="delete"></td>
-                            <td class="transactionAmount possitive">100</td>
-                            <td class="transactionMessage"><span>message</span></td>
-                        </tr>
-                        <tr class="transactionRow">
-                            <td class="delete"></td>
-                            <td class="transactionAmount negative">20</td>
-                            <td class="transactionMessage"><span>message2</span></td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-            
-        </div>
-        
-    </div>
-    </div>
-</body>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Document</title>
+		<!-- <script src="./src/script/script.js"></script> -->
+		<script src="/script.834ed2f9.js"></script>
+		<link rel="stylesheet" href="/style.e308ff8e.css">
+	<script src="/style.e308ff8e.js"></script></head>
+	<body>
+		<div class="notification hide">
+			<div class="notificationBody">
+				<div class="closeNotification"></div>
+				<div class="notificationTitle">
+					error!
+				</div>
+				<div class="notificationMesasge">
+					its an error
+				</div>
+			</div>
+		</div>
+		<div class="mainContainer">
+			<div class="banner">
+				<div class="bannerMessage">
+					<h3>EXPENSE TRACKER</h3>
+				</div>
+				<div class="bannerSubMessage">
+					track your expenses!
+				</div>
+			</div>
+			<div class="subContainer">
+				<div class="transactionCreator">
+					<div class="transactionType">
+						<select name="transactionType" id="transactionTypeInput" class="transactionTypeSelect">
+							<option value="1" selected="">income</option>
+							<option value="2">expense</option>
+						</select>
+					</div>
+					<div class="transactionDescription">
+						<input type="text" class="transactionNumber" id="transactionDescriptionInput">
+						<h5>Transaction Description</h5>
+					</div>
+					<div class="transactionValue">
+						<input type="number" class="transactionNumber" id="transactionAmountInput" min="1">
+						<h5>Transaction Amount</h5>
+					</div>
+					<button class="addTransaction" id="transactionSubmit">
+						create transaction
+					</button>
+				</div>
+				<div class="accountInfoContainer">
+					<div class="ballanceContainer">
+						<div class="ballanceMessage">
+							your current ballance
+						</div>
+						<div class="ballance">
+							<span class="money"><h3>100</h3></span>
+						</div>
+						<div class="incomeVsExpenseContainer">
+							<div class="ieContainer">
+								<span class="money positive">100</span>
+							</div>
+							<div class="ieContainer">
+								<span class="money negative">20</span>
+							</div>
+						</div>
+					</div>
+					<div class="transactionContainer">
+						<div class="transactionMainMessage">
+							<h5>your transactions</h5>
+						</div>
+						<div class="transactionList">
+							<table class="transactionTable">
+								<tr class="transactionRow">
+									<td class="delete"></td>
+									<td class="transactionAmount possitive">
+										100
+									</td>
+									<td class="transactionMessage">
+										<span>message</span>
+									</td>
+								</tr>
+								<tr class="transactionRow">
+									<td class="delete"></td>
+									<td class="transactionAmount negative">
+										20
+									</td>
+									<td class="transactionMessage">
+										<span>message2</span>
+									</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
 </html>
