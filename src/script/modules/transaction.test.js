@@ -22,14 +22,14 @@ test('create new Transaction with amount 100 message "message"', () => {
 test('create new Transaction with amount 100 message "message" and check response of toHTML()', () => {
 	expect(
 		new Transaction(
-			100,
+			101,
 			"message",
 			ExpenseType.POSITIVE_EXPENSE,
 			"1234",
 			testDate
 		).toHTML()
 	).toBe(
-		`<tr class="transactionRow"><td class="delete" idValue="1234"></td><td class="transactionAmount possitive">100</td><td class="transactionMessage"><span>message</span></td><td class="transactionDate"><span>${testDateStr}</span></td></tr>`
+		`<tr class="transactionRow"><td class="delete" idValue="1234"></td><td class="transactionAmount possitive">101</td><td class="transactionMessage"><span>message</span></td><td class="transactionDate"><span>${testDateStr}</span></td></tr>`
 	);
 });
 test('create new Transaction with amount -100 message "message" and check response of toHTML()', () => {
