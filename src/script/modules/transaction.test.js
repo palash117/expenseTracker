@@ -22,7 +22,7 @@ test('create new Transaction with amount 100 message "message"', () => {
 test('create new Transaction with amount 100 message "message" and check response of toHTML()', () => {
 	expect(
 		new Transaction(
-			100,
+			101,
 			"message",
 			ExpenseType.POSITIVE_EXPENSE,
 			"1234",
